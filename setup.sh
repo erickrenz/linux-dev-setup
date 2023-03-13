@@ -24,7 +24,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 # https://www.kernel.org/doc/html/latest/process/changes.html
 dnf install -y dwarves bindgen python3-sphinx openssl pcmciautils grub-customizer
 # https://packages.fedoraproject.org/pkgs/kernel/kernel/
-dnf install -y kernel kernel-devel kernel-headers kernel-cross-headers
+dnf install -y kernel kernel-devel kernel-headers kernel-cross-headers dtc
 
 ### LLVM / Clang ###
 # https://packages.fedoraproject.org/pkgs/llvm/llvm/
