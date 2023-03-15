@@ -2,9 +2,7 @@
 
 # Detect package manager
 if [[ -e /bin/dnf || -e /usr/bin/dnf ]]; then
-    dnf check-update -y
     dnf upgrade -y
-    dnf update -y
 else
     echo "The dnf package manager is required for this script."
     exit
