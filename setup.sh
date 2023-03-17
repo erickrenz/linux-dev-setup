@@ -55,6 +55,8 @@ dnf install -y neovim python3-neovim
 dnf group install -y "C Development Tools and Libraries" "Development Tools"
 # Install Podman (docker equivalent)
 dnf install -y podman
+# Misc Utiliries
+dnf install -y neofetch
 
 ### Update installed tools ###
 dnf update -y 
