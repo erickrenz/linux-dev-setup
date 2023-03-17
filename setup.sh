@@ -14,7 +14,7 @@ dnf install -y git
 ### zsh ###
 # Sets zsh as default shell and configures oh-my-zsh
 # https://ohmyz.sh#install
-dnf install -y zsh chsh
+dnf install -y zsh util-linux-user
 chsh -s /bin/zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
