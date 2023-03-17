@@ -53,10 +53,8 @@ dnf install -y neovim python3-neovim
 ### Miscelaneous ###
 # Install groups are the "build-essential" equivalent for Fedora
 dnf group install -y "C Development Tools and Libraries" "Development Tools"
-# Install Podman (docker equivalent)
-dnf install -y podman
-# Misc Utiliries
-dnf install -y neofetch
+# Misc Utilities
+dnf install -y podman neofetch
 
 ### Update installed tools ###
 dnf update -y 
