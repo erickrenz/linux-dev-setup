@@ -23,8 +23,8 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 dnf install -y dwarves bindgen python3-sphinx openssl pcmciautils grub-customizer bc
 # https://packages.fedoraproject.org/pkgs/kernel/kernel/
 dnf install -y kernel kernel-devel kernel-headers kernel-cross-headers dtc
-# BusyBox dependencies
-dnf install -y glibc-static perl-Pod-Html
+# Embedded/BusyBox dependencies
+dnf install -y glibc-static perl-Pod-Html openocd
 
 ### LLVM / Clang ###
 # https://packages.fedoraproject.org/pkgs/llvm/llvm/
