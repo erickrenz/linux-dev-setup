@@ -51,8 +51,11 @@ dnf copr enable -y agriffis/neovim-nightly
 dnf install -y neovim python3-neovim
 
 ### Miscelaneous ###
+# Install the Fedora Server packages
+dnf group install -y "server-product-environment"
 # Install groups are the "build-essential" equivalent for Fedora
-dnf group install -y "C Development Tools and Libraries" "Development Tools"
+dnf group install -y "C Development Tools and Libraries" 
+dnf group install -y "Development Tools"
 # Misc Utilities
 dnf install -y podman neofetch
 
