@@ -57,7 +57,7 @@ dnf group install -y "server-product-environment"
 dnf group install -y "C Development Tools and Libraries" 
 dnf group install -y "Development Tools"
 # Misc Utilities
-dnf install -y podman neofetch wget
+dnf install -y podman neofetch wget ripgrep
 
 ### Update installed tools ###
 dnf update -y 
