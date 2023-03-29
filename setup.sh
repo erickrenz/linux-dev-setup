@@ -59,7 +59,7 @@ dnf group install -y "Development Tools"
 # Cross-build binary utilities
 dnf install -y binutils-arm-linux-gnu gcc-arm-linux-gnu gcc-c++-arm-linux-gnu
 # Misc Utilities
-dnf install -y podman neofetch wget ripgrep
+dnf install -y podman neofetch wget ripgrep openssh-server
 
 ### Update installed tools ###
 dnf update -y 
