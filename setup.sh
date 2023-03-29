@@ -56,6 +56,8 @@ dnf group install -y "server-product-environment"
 # Install groups are the "build-essential" equivalent for Fedora
 dnf group install -y "C Development Tools and Libraries" 
 dnf group install -y "Development Tools"
+# Cross-build binary utilities
+dnf install -y binutils-arm-linux-gnu gcc-arm-linux-gnu gcc-c++-arm-linux-gnu
 # Misc Utilities
 dnf install -y podman neofetch wget ripgrep
 
