@@ -24,7 +24,7 @@ dnf install -y dwarves bindgen python3-sphinx openssl pcmciautils grub-customize
 # https://packages.fedoraproject.org/pkgs/kernel/kernel/
 dnf install -y kernel kernel-devel kernel-headers kernel-cross-headers dtc
 # Embedded/BusyBox dependencies
-dnf install -y glibc-static perl-Pod-Html openocd
+dnf install -y glibc-static perl-Pod-Html openocd glibc-devel.i686 glibc-devel.x86_64
 
 ### LLVM / Clang ###
 # https://packages.fedoraproject.org/pkgs/llvm/llvm/
