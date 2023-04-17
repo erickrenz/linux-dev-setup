@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Detect package manager == dnf
+# Verify package manager
 if [[ -e /bin/dnf || -e /usr/bin/dnf ]]; then
     dnf upgrade -yq
 else
