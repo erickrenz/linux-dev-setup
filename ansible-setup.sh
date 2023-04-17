@@ -1,2 +1,2 @@
 #!/bin/sh
-sudo dnf install -y ansible
+sudo dnf install -y python ansible
