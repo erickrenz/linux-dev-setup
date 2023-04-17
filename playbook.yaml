@@ -4,6 +4,16 @@
     - name: update dnf
       dnf:
         update_cache: true
+        update_only: true
         state: present
   tasks:
+    # list tasks in order of excecution
     - include_tasks: tasks/ansible-requirements.yaml
+    - include_tasks: tasks/git.yaml
+    # TODO - zsh
+    # TODO - rust
+    # TODO - vscode
+    # TODO - neovim + ripgrep
+    # TODO - "server-product-environment" group
+    - include_tasks: tasks/kernel.yaml
+    - include_tasks: tasks/utilities.yaml

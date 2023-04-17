@@ -1,0 +1,45 @@
+- name: Install kernel and embedded development tools
+  dnf:
+    name: "{{ item }}"
+    state: latest
+  loop:
+    # Install groups are the "build-essential" equivalent for Fedora
+    - '@Development Tools'
+    - '@C Development Tools and Libraries'
+    # https://www.kernel.org/doc/html/latest/process/changes.html
+    - dwarves 
+    - bindgen 
+    - python3-sphinx 
+    - openssl 
+    - pcmciautils 
+    - grub-customizer 
+    - bc
+    # https://packages.fedoraproject.org/pkgs/kernel/kernel/
+    - kernel 
+    - kernel-devel 
+    - kernel-headers 
+    - kernel-cross-headers 
+    - dtc
+    # Embedded/BusyBox dependencies
+    - glibc-static 
+    - perl-Pod-Html 
+    - openocd 
+    - glibc-devel.i686 
+    - glibc-devel.x86_64
+    # LLVM and Clang
+    # https://packages.fedoraproject.org/pkgs/llvm/llvm/
+    - llvm 
+    - clang 
+    - cmake 
+    - lld
+    - lldb 
+    - clang-tools-extra
+    # Qemu and Virtualization 
+    # https://www.qemu.org/download/#linux
+    - qemu 
+    - qemu-kvm 
+    - "@Virtualization"
+    # Cross-build binary utilities
+    - binutils-arm-linux-gnu 
+    - gcc-arm-linux-gnu 
+    - gcc-c++-arm-linux-gnu

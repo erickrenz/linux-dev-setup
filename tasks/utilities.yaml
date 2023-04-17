@@ -1,0 +1,9 @@
+- name: Install miscelaneous utilities
+  dnf:
+    name: "{{ item }}"
+    state: latest
+  loop:
+    - podman 
+    - neofetch 
+    - wget  
+    - openssh-server
