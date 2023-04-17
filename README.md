@@ -7,7 +7,7 @@ This goal of this script is to quickly get a development system up and running b
 ## Getting Started
 
 ```bash
-sudo sh -c "$(curl -fsSL https://raw.githubusercontent.com/erickrenz/linux-dev-setup/main/ansible-setup.sh)"
+sudo sh -c "$(curl -fsSL https://raw.githubusercontent.com/erickrenz/linux-dev-setup/main/setup.sh)"
 ```
 
 ## Installed Tools
