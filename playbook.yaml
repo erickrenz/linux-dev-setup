@@ -6,4 +6,4 @@
         update_cache: true
         state: present
   tasks:
-    - include_tasks: tasks/test.yaml
+    - include_tasks: tasks/ansible-requirements.yaml
