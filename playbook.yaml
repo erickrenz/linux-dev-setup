@@ -1,8 +1,4 @@
-- name: My first play
+- name: Setup Fedora Developer Workstation
   hosts: all
   tasks:
-   - name: Ping my hosts
-     ansible.builtin.ping:
-   - name: Print message
-     ansible.builtin.debug:
-       msg: Hello world
+    - include_tasks: tasks/test.yaml
