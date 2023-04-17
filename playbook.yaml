@@ -1,4 +1,9 @@
 - name: Setup Fedora Developer Workstation
   hosts: all
+  pre_tasks:
+    - name: update dnf
+      dnf:
+        update_cache: true
+        state: present
   tasks:
     - include_tasks: tasks/test.yaml

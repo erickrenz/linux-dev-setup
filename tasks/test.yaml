@@ -1,5 +1,8 @@
-- name: Ping my hosts
-  ansible.builtin.ping:
-- name: Print message
-  ansible.builtin.debug:
-    msg: Hello world
+- name: Ensure Python is installed
+  dnf:
+    name: python
+    state: latest
+- name: Ensure Ansible is installed
+  dnf:
+    name: ansible
+    state: latest
