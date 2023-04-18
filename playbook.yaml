@@ -14,5 +14,6 @@
     # TODO - vscode
     # TODO - neovim + ripgrep
     # TODO - "server-product-environment" group
-    - include_tasks: tasks/kernel.yaml
+    - include_tasks: tasks/development.yaml
+    - include_tasks: tasks/i3.yaml
     - include_tasks: tasks/utilities.yaml

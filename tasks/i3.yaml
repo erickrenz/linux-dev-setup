@@ -1,0 +1,11 @@
+- name: Install i3 and tools
+  dnf:
+    name: "{{ item }}"
+    state: latest
+  loop:
+    - i3
+    - i3status
+    - i3lock
+    - dmenu
+    - feh
+    - compton
