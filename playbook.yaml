@@ -9,7 +9,7 @@
   tasks:
     # list tasks in order of excecution
     - include_tasks: tasks/ansible-requirements.yaml
-    # TODO - zsh
+    # TODO - zsh + unattended ohmyzsh install
     # TODO - rust
     # TODO - vscode
     # TODO - neovim + ripgrep

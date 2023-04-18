@@ -7,3 +7,9 @@
     - neofetch 
     - wget  
     - openssh-server
+    - i3
+    - i3status
+    - i3lock
+    - dmenu
+    - feh
+
