@@ -1,12 +1,12 @@
 - name: See if rustup exists
   stat:
     path: ~/.cargo/bin/rustup
-  register: oh_my_stats
+  register: rustup_stats
 
 - name: Install rustup
   shell: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-  when: oh_my_stats.stat.exists == False
+  when: rustup_stats.stat.exists == False
 
 - name: source rustup
   shell: source "~/.cargo/env"
-  when: oh_my_stats.stat.exists == False
+  when: rustup_stats.stat.exists == False

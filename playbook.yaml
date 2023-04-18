@@ -11,7 +11,7 @@
     - include_tasks: tasks/ansible.yaml
     - include_tasks: tasks/zsh.yaml
     - include_tasks: tasks/rust.yaml
-    # TODO - vscode
+    - include_tasks: tasks/vscode.yaml
     - include_tasks: tasks/neovim.yaml
     - include_tasks: tasks/development.yaml
     - include_tasks: tasks/i3.yaml
