@@ -4,7 +4,7 @@
     state: latest
 
 - name: Make zsh default
-  shell: chsh -s $(which zsh)
+  shell: chsh -s "$(which zsh)"
   when: ansible_facts['user_shell'].find('zsh') == -1
 
 - name: See if file ".oh-my-zsh" exists
