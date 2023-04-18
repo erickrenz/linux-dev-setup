@@ -12,8 +12,9 @@
     - include_tasks: tasks/zsh.yaml
     # TODO - rust
     # TODO - vscode
-    # TODO - neovim + ripgrep
+    - include_tasks: tasks/neovim.yaml
     - include_tasks: tasks/development.yaml
     - include_tasks: tasks/i3.yaml
     - include_tasks: tasks/utilities.yaml
     - include_tasks: tasks/server.yaml
+    # TODO - stow
