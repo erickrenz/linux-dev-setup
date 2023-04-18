@@ -1,4 +1,0 @@
-- name: Ensure Git is installed
-  dnf:
-    name: git
-    state: latest
