@@ -12,6 +12,6 @@
     path: ~/.oh-my-zsh
   register: oh_my_stats
 
-- name: Oh-My-Zsh
+- name: Install oh-my-zsh
   shell: sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
   when: oh_my_stats.stat.exists == False

@@ -7,3 +7,4 @@
     - neofetch 
     - wget  
     - openssh-server
+    - stow
