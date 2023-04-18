@@ -8,5 +8,5 @@
   when: rustup_stats.stat.exists == False
 
 - name: source rustup
-  shell: source "~/.cargo/env"
+  shell: source "$HOME/.cargo/env"
   when: rustup_stats.stat.exists == False
