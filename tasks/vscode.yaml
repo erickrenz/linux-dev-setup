@@ -1,0 +1,24 @@
+- name: See if VSCode exists
+  stat:
+    path: ~/.vscode
+  register: vscode_stats
+
+- name: Get VSCode Key
+  rpm_key:
+    state: present
+    key: https://packages.microsoft.com/keys/microsoft.asc
+  when: vscode_stats.stat.isdir is defined
+
+- name: Get VSCode Repository
+  shell: sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
+  when: vscode_stats.stat.isdir is defined
+
+- name: Update package cache
+  dnf:
+    update_cache: yes
+  when: vscode_stats.stat.isdir is defined
+
+- name: Install VSCode
+  dnf:
+    name: code
+    state: latest

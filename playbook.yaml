@@ -1,0 +1,19 @@
+- name: Setup Fedora Developer Workstation
+  hosts: all
+  pre_tasks:
+    - name: update dnf
+      dnf:
+        update_cache: true
+        update_only: true
+        state: present
+  tasks:
+    # list tasks in order of excecution
+    - include_tasks: tasks/ansible.yaml
+    - include_tasks: tasks/zsh.yaml
+    - include_tasks: tasks/rust.yaml
+    - include_tasks: tasks/vscode.yaml
+    - include_tasks: tasks/neovim.yaml
+    - include_tasks: tasks/development.yaml
+    - include_tasks: tasks/i3.yaml
+    - include_tasks: tasks/utilities.yaml
+    - include_tasks: tasks/server.yaml

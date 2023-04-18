@@ -1,0 +1,17 @@
+- name: Install zsh
+  dnf:
+    name: ["zsh", "util-linux-user"]
+    state: latest
+
+- name: Make zsh default
+  shell: chsh -s $(which zsh)
+  when: ansible_facts['user_shell'].find('zsh') == -1
+
+- name: See if file ".oh-my-zsh" exists
+  stat:
+    path: ~/.oh-my-zsh
+  register: oh_my_stats
+
+- name: Install oh-my-zsh
+  shell: sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+  when: oh_my_stats.stat.exists == False

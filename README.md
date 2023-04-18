@@ -17,6 +17,7 @@ sudo sh -c "$(curl -fsSL https://raw.githubusercontent.com/erickrenz/linux-dev-s
 `ohmyzsh` &nbsp;
 `GNU C` &nbsp;
 `GNU Make` &nbsp;
+`GNU Stow` &nbsp;
 `bash` &nbsp;
 `flex` &nbsp;
 `bison` &nbsp;
