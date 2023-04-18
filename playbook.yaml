@@ -8,7 +8,7 @@
         state: present
   tasks:
     # list tasks in order of excecution
-    - include_tasks: tasks/ansible-requirements.yaml
+    - include_tasks: tasks/ansible.yaml
     # TODO - zsh + unattended ohmyzsh install
     # TODO - rust
     # TODO - vscode
