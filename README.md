@@ -1,8 +1,8 @@
 # linux-dev-setup
 
-A simple script to install developer tools for Fedora/CentOS/RHEL based Linux distros using the `dnf` package manager. 
+An Ansible playbook to install developer tools for Fedora/CentOS/RHEL based Linux distros using the `dnf` package manager. 
 
-This goal of this script is to quickly get a development system up and running by installing all of the required packages needed for embedded or linux kernel development. This script can also be applied to any low level development projects in general. No prerequisites are required other than running a RHEL (Red Hat Enterprise Linux) based Linux distro. 
+This goal of this project is to quickly get a development system up and running by installing all of the required packages needed for embedded or linux kernel development. This project can also be applied to any low level development projects in general. No prerequisites are required other than running a RHEL (Red Hat Enterprise Linux) based Linux distro. 
 
 ## Getting Started
 
