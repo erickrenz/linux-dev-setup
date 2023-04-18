@@ -7,16 +7,16 @@
   rpm_key:
     state: present
     key: https://packages.microsoft.com/keys/microsoft.asc
-  when: vscode_stats.stat.isdir is defined
+  when: vscode_stats.stat.isdir is undefined
 
 - name: Get VSCode Repository
   shell: sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
-  when: vscode_stats.stat.isdir is defined
+  when: vscode_stats.stat.isdir is undefined
 
 - name: Update package cache
   dnf:
     update_cache: yes
-  when: vscode_stats.stat.isdir is defined
+  when: vscode_stats.stat.isdir is undefined
 
 - name: Install VSCode
   dnf:
