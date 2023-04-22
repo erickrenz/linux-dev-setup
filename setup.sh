@@ -15,9 +15,9 @@ dnf install -yq git ansible
 
 # Clone this repository
 echo "[3/4] Cloning repository..."
-git clone -q https://github.com/erickrenz/linux-dev-setup.git
+git clone -q https://github.com/erickrenz/.dotfiles.git ~
 
-cd linux-dev-setup/
+cd ~/.dotfiles
 
 # Run ansible playbook
 echo "[4/4] Running playbook..."
