@@ -16,4 +16,5 @@
     - include_tasks: tasks/development.yaml
     - include_tasks: tasks/i3.yaml
     - include_tasks: tasks/utilities.yaml
-    - include_tasks: tasks/server.yaml
+    # not included in this playbook
+    # - include_tasks: tasks/server.yaml
