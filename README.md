@@ -13,6 +13,11 @@ sudo sh -c "$(curl -fsSL https://raw.githubusercontent.com/erickrenz/linux-dev-s
 ### Optional
 
 ```bash
+# authenticate with github
+gh auth login
+```
+
+```bash
 # edit dnf config
 sudo vi /etc/dnf/dnf.conf
 

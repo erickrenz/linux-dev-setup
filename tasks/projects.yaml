@@ -1,0 +1,8 @@
+- name: personal website
+  git:
+    repo: "https://github.com/erickrenz/ekrenz.com.git" 
+    dest: "/home/ekrenz/code/ekrenz.com/"
+- name: learn rust
+  git:
+    repo: "https://github.com/erickrenz/learn-rust.git"
+    dest: "/home/ekrenz/code/learn-rust/"
