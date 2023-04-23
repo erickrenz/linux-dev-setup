@@ -10,6 +10,17 @@ This goal of this project is to quickly get a development system up and running 
 sudo sh -c "$(curl -fsSL https://raw.githubusercontent.com/erickrenz/linux-dev-setup/main/setup.sh)"
 ```
 
+### Optional
+
+```bash
+# edit dnf config
+sudo vi /etc/dnf/dnf.conf
+
+
+# enable parallel downloads
+max_parallel_downloads=10
+```
+
 ## Installed Tools
 
 `Git` &nbsp;
