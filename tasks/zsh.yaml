@@ -3,13 +3,14 @@
     name: ["zsh", "util-linux-user"]
     state: latest
 
-- name: Make zsh default
-  shell: chsh -s /usr/bin/zsh ekrenz
-
 - name: See if file ".oh-my-zsh" exists
   stat:
     path: /home/ekrenz/.oh-my-zsh
   register: oh_my_stats
+
+- name: Make zsh default
+  shell: chsh -s /usr/bin/zsh ekrenz
+  when: oh_my_stats.stat.exists == False
 
 - name: Install oh-my-zsh
   shell: sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
