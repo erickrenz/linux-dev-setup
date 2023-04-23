@@ -17,6 +17,7 @@ dnf install -yq git ansible
 echo "[3/4] Cloning repository..."
 cd /home/ekrenz/
 git clone -q https://github.com/erickrenz/.dotfiles.git
+chown -hR ekrenz .dotfiles/
 cd /home/ekrenz/.dotfiles
 
 # Run ansible playbook
