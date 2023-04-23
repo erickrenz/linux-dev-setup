@@ -8,3 +8,4 @@
     - wget  
     - openssh-server
     - stow
+    - gh
