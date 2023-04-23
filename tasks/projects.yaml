@@ -7,10 +7,6 @@
   git:
     repo: "https://github.com/erickrenz/ekrenz.com.git" 
     dest: "/home/ekrenz/code/ekrenz.com/"
-- name: cortex quickstart
-  git:
-    repo: "https://github.com/erickrenz/cortex-m-quickstart.git"
-    dest: "/home/ekrenz/code/cortex-m-quickstart/"
 - name: learn rust
   git:
     repo: "https://github.com/erickrenz/learn-rust.git"
