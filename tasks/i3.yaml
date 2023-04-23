@@ -9,6 +9,3 @@
     - i3lock
     - dmenu
     - feh
-    # popos/shell
-    - gnome-shell-extension-pop-shell
-    - xprop
