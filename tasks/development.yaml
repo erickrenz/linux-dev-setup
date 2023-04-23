@@ -43,3 +43,8 @@
     - binutils-arm-linux-gnu 
     - gcc-arm-linux-gnu 
     - gcc-c++-arm-linux-gnu
+    # Python tools
+    - python3-pip
+    - python3-wheel
+    - python3-devel
+    - python3-virtualenv
