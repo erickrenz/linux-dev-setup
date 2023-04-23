@@ -9,6 +9,7 @@
   tasks:
     # list tasks in order of excecution
     - include_tasks: tasks/ansible.yaml
+    - include_tasks: tasks/git.yaml
     - include_tasks: tasks/zsh.yaml
     - include_tasks: tasks/rust.yaml
     - include_tasks: tasks/vscode.yaml
