@@ -5,7 +5,9 @@
   loop:
     - podman 
     - neofetch 
+    - cmatrix 
     - wget  
     - openssh-server
     - stow
+    - tmux
     - gh
