@@ -1,7 +1,3 @@
-- name: Enable Neovim
-  community.general.copr:
-    name: agriffis/neovim-nightly
-
 - name: Install Neovim
   dnf:
     name: "{{ item }}"
