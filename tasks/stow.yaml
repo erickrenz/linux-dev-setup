@@ -1,13 +1,2 @@
 - name: Stow dotfiles - Home
-  community.general.make:
-    chdir: /home/ekrenz/.dotfiles/dotfiles
-    target: home
-  tags:
-    - home
-
-- name: Stow dotfiles - Work
-  community.general.make:
-    chdir: /home/ekrenz/.dotfiles/dotfiles
-    target: work
-  tags:
-    - work
+  shell: make -C /home/ekrenz/.dotfiles/dotfiles
