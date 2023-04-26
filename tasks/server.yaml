@@ -1,4 +1,0 @@
-- name: Install server tools
-  dnf:
-    name: "@server-product-environment"
-    state: latest
