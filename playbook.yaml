@@ -13,9 +13,7 @@
     - include_tasks: tasks/zsh.yaml
     - include_tasks: tasks/rust.yaml
     - include_tasks: tasks/vscode.yaml
-    - include_tasks: tasks/neovim.yaml
     - include_tasks: tasks/development.yaml
-    - include_tasks: tasks/i3.yaml
-    - include_tasks: tasks/utilities.yaml
+    - include_tasks: tasks/infrastructure.yaml
     # not included in this playbook
     # - include_tasks: tasks/server.yaml

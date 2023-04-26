@@ -1,8 +1,0 @@
-- name: Install Neovim
-  dnf:
-    name: "{{ item }}"
-    state: latest
-  loop:
-    - neovim
-    - python3-neovim
-    - ripgrep

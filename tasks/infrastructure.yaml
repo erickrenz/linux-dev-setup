@@ -1,0 +1,33 @@
+- name: Install i3 and tools
+  dnf:
+    name: "{{ item }}"
+    state: latest
+  loop:
+    - i3
+    - i3status
+    - i3lock
+    - dmenu
+    - feh
+
+- name: Install Neovim
+  dnf:
+    name: "{{ item }}"
+    state: latest
+  loop:
+    - neovim
+    - python3-neovim
+    - ripgrep
+
+- name: Install miscelaneous utilities
+  dnf:
+    name: "{{ item }}"
+    state: latest
+  loop:
+    - podman 
+    - neofetch 
+    - cmatrix 
+    - wget  
+    - openssh-server
+    - stow
+    - tmux
+    - gh
