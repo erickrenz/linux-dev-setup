@@ -3,11 +3,19 @@
     path: "/home/ekrenz/code"
     state: directory
     owner: ekrenz
+  tags:
+    - always
+
 - name: personal website
   git:
     repo: "https://github.com/erickrenz/ekrenz.com.git" 
     dest: "/home/ekrenz/code/ekrenz.com/"
+  tags:
+    - home
+
 - name: learn rust
   git:
     repo: "https://github.com/erickrenz/learn-rust.git"
     dest: "/home/ekrenz/code/learn-rust/"
+  tags: 
+    - home

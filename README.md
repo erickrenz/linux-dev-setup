@@ -6,8 +6,23 @@ This goal of this project is to quickly get a development system up and running 
 
 ## Getting Started
 
+### Download and Install
+
 ```bash
 sudo sh -c "$(curl -fsSL https://raw.githubusercontent.com/erickrenz/linux-dev-setup/main/setup.sh)"
+```
+
+### Usage
+
+```bash
+# Install ONLY GLOBAL packages and tools
+ansible-playbook playbook.yaml
+
+# Install FULL HOME configutation
+ansible-playbook -t home playbook.yaml
+
+# Install FULL WORK configuration
+ansible-playbook -t work playbook.yaml
 ```
 
 ### Optional

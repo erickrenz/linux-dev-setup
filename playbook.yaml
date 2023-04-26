@@ -7,11 +7,31 @@
         update_only: true
         state: present
   tasks:
-    # list tasks in order of excecution
-    - include_tasks: tasks/git.yaml
-    - include_tasks: tasks/projects.yaml
-    - include_tasks: tasks/zsh.yaml
-    - include_tasks: tasks/rust.yaml
-    - include_tasks: tasks/vscode.yaml
-    - include_tasks: tasks/development.yaml
-    - include_tasks: tasks/infrastructure.yaml
+    - name: Global Tasks
+      include_tasks: 
+        file: "{{ file }}"
+        apply:
+          tags:
+            - always
+      loop:    
+        - tasks/zsh.yaml
+        - tasks/rust.yaml
+        - tasks/vscode.yaml
+        - tasks/development.yaml
+        - tasks/infrastructure.yaml
+      loop_control:
+        loop_var: file
+      tags:
+        - always
+    
+    - name: Home / Work Tasks
+      include_tasks: "{{ file }}"
+      loop:
+        - tasks/git.yaml
+        - tasks/projects.yaml
+      loop_control:
+        loop_var: file
+      tags: 
+        - home
+        - work
+        - never
