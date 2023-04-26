@@ -1,5 +1,5 @@
 all:
-	stow --verbose --target=$$HOME --restow */
+	stow --verbose --target=/home/ekrenz/ --restow */
 
 clean:
-	stow --verbose --target=$$HOME --delete */
+	stow --verbose --target=/home/ekrenz/ --delete */
