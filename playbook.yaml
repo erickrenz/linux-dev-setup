@@ -8,7 +8,6 @@
         state: present
   tasks:
     # list tasks in order of excecution
-    - include_tasks: tasks/ansible.yaml
     - include_tasks: tasks/git.yaml
     - include_tasks: tasks/projects.yaml
     - include_tasks: tasks/zsh.yaml

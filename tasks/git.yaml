@@ -3,6 +3,7 @@
     name: user.name
     scope: global
     value: "erickrenz"
+
 - name: Git personal setup email
   git_config:
     name: user.email
