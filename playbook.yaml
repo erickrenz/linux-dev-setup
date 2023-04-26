@@ -14,11 +14,11 @@
           tags:
             - always
       loop:    
-        - tasks/zsh.yaml
-        - tasks/rust.yaml
-        - tasks/vscode.yaml
         - tasks/development.yaml
         - tasks/infrastructure.yaml
+        - tasks/rust.yaml
+        - tasks/vscode.yaml
+        - tasks/zsh.yaml
       loop_control:
         loop_var: file
       tags:
