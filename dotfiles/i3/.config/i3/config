@@ -30,7 +30,7 @@ exec --no-startup-id dex-autostart --autostart --environment i3
 exec --no-startup-id xrandr --output Virtual1 --mode 1920x1080
 
 # Set custom wallpaper
-exec --no-startup-id feh --bg-fill /home/ekrenz/.dotfiles/wallpapers/F38-night.jpg
+exec --no-startup-id feh --bg-fill /home/ekrenz/.dotfiles/wallpapers/unix.jpg
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
