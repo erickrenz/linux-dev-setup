@@ -30,7 +30,7 @@ exec --no-startup-id dex-autostart --autostart --environment i3
 exec --no-startup-id xrandr --output Virtual1 --mode 1920x1080
 
 # Set custom wallpaper
-exec --no-startup-id feh --bg-fill /home/ekrenz/.dotfiles/wallpapers/F38-night.jpg
+exec --no-startup-id feh --bg-fill /home/ekrenz/.dotfiles/wallpapers/unix.jpg
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
@@ -42,10 +42,6 @@ exec --no-startup-id nm-applet
 
 # GET DEM BORDERS OUT OF HERE
 for_window [class="^.*"] border pixel 2
-
-# default gaps
-gaps inner 15
-gaps outer 5
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
