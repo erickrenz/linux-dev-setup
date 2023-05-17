@@ -30,7 +30,7 @@ exec --no-startup-id dex-autostart --autostart --environment i3
 exec --no-startup-id xrandr --output Virtual1 --mode 1920x1080
 
 # Set custom wallpaper
-exec --no-startup-id feh --bg-fill /home/ekrenz/.dotfiles/wallpapers/unix.jpg
+exec --no-startup-id feh --bg-fill /home/ekrenz/.dotfiles/wallpapers/F38-night.jpg
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
@@ -43,6 +43,10 @@ exec --no-startup-id nm-applet
 # GET DEM BORDERS OUT OF HERE
 for_window [class="^.*"] border pixel 2
 
+# default gaps
+gaps inner 15
+gaps outer 5
+
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
@@ -52,10 +56,6 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
-
-# move tiling windows via drag & drop by left-clicking into the title bar,
-# or left-clicking anywhere into the window while holding the floating modifier.
-tiling_drag modifier titlebar
 
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
@@ -211,5 +211,3 @@ bindsym $alt+l exec systemctl suspend
 bindsym $alt+Left workspace prev
 bindsym $alt+Right workspace next
 
-# Set custom wallpaper
-exec --no-startup-id feh --bg-scale ~/code/linux-dev-setup/wallpapers/F38-night.jpg
