@@ -2,7 +2,11 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+-- set relative line numbers
 vim.opt.relativenumber = true
+
+-- prevent scrolling out of view
+vim.opt.scrolloff = 8
 
 -- Install package manager
 --    https://github.com/folke/lazy.nvim
