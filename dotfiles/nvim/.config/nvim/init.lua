@@ -89,10 +89,10 @@ require('lazy').setup({
         transparent = true,
         terminal_colors = true,
         on_colors = function(colors)
-          colors.comment = "#b2b8cf"
+          colors.comment = "#b2b8cf" --"#828bb0" -- "#626e9d"
         end,
         on_highlights = function(highlights)
-          local line_nr_color = "#b2b8cf"
+          local line_nr_color = "#828bb0"
           highlights.LineNr = {
             fg = line_nr_color,
           }
