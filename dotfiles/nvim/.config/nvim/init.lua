@@ -20,6 +20,7 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+
 -- NOTE: Here is where you install your plugins.
 --  You can configure plugins using the `config` key.
 --
@@ -78,11 +79,27 @@ require('lazy').setup({
   },
 
   {
-    -- Theme inspired by VSCode
-    'Mofiqul/vscode.nvim',
+    -- Tokyo Night - theme to match alacritty terminal
+    'folke/tokyonight.nvim',
     priority = 1000,
     config = function()
-      vim.cmd.colorscheme 'vscode'
+      local tokyotheme = require("tokyonight")
+      tokyotheme.setup({
+        style = "night",
+        transparent = true,
+        terminal_colors = true,
+        on_colors = function(colors)
+          colors.comment = "#b2b8cf"
+        end,
+        on_highlights = function(highlights)
+          local line_nr_color = "#b2b8cf"
+          highlights.LineNr = {
+            fg = line_nr_color,
+          }
+        end,
+      })
+
+      vim.cmd.colorscheme 'tokyonight-night'
     end,
   },
 
@@ -93,7 +110,7 @@ require('lazy').setup({
     opts = {
       options = {
         icons_enabled = false,
-        theme = 'vscode',
+        theme = 'tokyonight',
         component_separators = '|',
         section_separators = '',
       },
@@ -456,6 +473,7 @@ cmp.setup {
     { name = 'luasnip' },
   },
 }
+
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

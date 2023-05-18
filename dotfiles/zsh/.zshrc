@@ -106,7 +106,7 @@ alias nv="nvim ."
 
 alias up="sudo dnf upgrade -y"
 
-alias 1080="xrandr -s 1920x1080"
-alias 1440="xrandr -s 2560x1440"
-alias 2160="xrandr -s 3840x2160"
+alias 1080="xrandr -s 1920x1080 && feh --bg-fill /home/ekrenz/.dotfiles/wallpapers/unix.jpg"
+alias 1440="xrandr -s 2560x1440 && feh --bg-fill /home/ekrenz/.dotfiles/wallpapers/unix.jpg"
+alias 2160="xrandr -s 3840x2160 && feh --bg-fill /home/ekrenz/.dotfiles/wallpapers/unix.jpg"
 
