@@ -12,6 +12,7 @@
     # Custom
     - alacritty
     - tmux
+    - jetbrains-mono-fonts-all
 
 - name: Install Neovim
   dnf:
