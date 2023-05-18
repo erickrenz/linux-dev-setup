@@ -7,8 +7,9 @@
 # If the above line is not correctly displayed, fix your editor first!
 
 general {
-        colors = true
+        colors = false
         interval = 5
+        markup = pango
 }
 
 # order += "ipv6"
@@ -26,7 +27,7 @@ wireless _first_ {
 }
 
 ethernet _first_ {
-        format_up = "E: %ip" # (%speed)"
+        format_up = "<span background='#000000'> IP: %ip </span>" # (%speed)"
         format_down = "E: down"
 }
 
@@ -35,20 +36,20 @@ battery all {
 }
 
 disk "/" {
-        format = "%avail"
+        format = "<span background='#353535'> %avail </span>"
 }
 
 load {
-        format = "%1min"
+        format = "<span background='#000000'> %1min Load </span>"
 }
 
 memory {
-        format = "%used"
+        format = "<span background='#353535'> %used </span>"
         #format = "%used | %available"
         threshold_degraded = "1G"
         format_degraded = "MEMORY < %available"
 }
 
 tztime local {
-        format = "%Y-%m-%d %H:%M:%S"
+        format = "<span background='#000000'> %Y-%m-%d  %H:%M:%S </span>"
 }
