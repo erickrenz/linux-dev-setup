@@ -3,11 +3,15 @@
     name: "{{ item }}"
     state: latest
   loop:
+    # Default
     - i3
     - i3status
     - i3lock
     - dmenu
     - feh
+    # Custom
+    - alacritty
+    - tmux
 
 - name: Install Neovim
   dnf:
@@ -29,5 +33,4 @@
     - wget  
     - openssh-server
     - stow
-    - tmux
     - gh

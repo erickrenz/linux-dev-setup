@@ -99,7 +99,14 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+alias v="nvim"
 alias vim="nvim"
 alias nv="nvim ."
 
 alias up="sudo dnf upgrade -y"
+
+alias 1080="xrandr -s 1920x1080"
+alias 1440="xrandr -s 2560x1440"
+alias 2160="xrandr -s 3840x2160"
+
