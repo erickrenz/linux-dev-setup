@@ -89,7 +89,7 @@ require('lazy').setup({
     config = function()
       local tokyotheme = require("tokyonight")
       tokyotheme.setup({
-        style = "night",
+        style = "moon",
         transparent = true,
         terminal_colors = true,
         on_colors = function(colors)
@@ -103,7 +103,7 @@ require('lazy').setup({
         end,
       })
 
-      vim.cmd.colorscheme 'tokyonight-night'
+      vim.cmd.colorscheme 'tokyonight'
     end,
   },
 
