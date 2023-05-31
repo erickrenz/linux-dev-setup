@@ -10,6 +10,7 @@ general {
         colors = false
         interval = 5
         markup = pango
+        separator = ""
 }
 
 # order += "ipv6"
@@ -17,8 +18,8 @@ general {
 order += "ethernet _first_"
 # order += "battery all"
 order += "disk /"
-# order += "cpu_usage"
-order += "load"
+order += "cpu_usage"
+# order += "load"
 order += "memory"
 order += "tztime local"
 
@@ -28,7 +29,7 @@ wireless _first_ {
 }
 
 ethernet _first_ {
-        format_up = "<span background='#000000'> IP: %ip </span>" # (%speed)"
+        format_up = "%ip" # IP: (%speed)"
         format_down = "E: down"
 }
 
@@ -37,24 +38,25 @@ battery all {
 }
 
 disk "/" {
-        format = "<span background='#353535'> %avail SSD </span>"
+        format = "<span background='#32344a'> %avail </span>"
 }
 
 cpu_usage {
-        format = "<span background='#000000'> %usage CPU </span>"
+        format = "%usage CPU"
 }
 
 load {
-        format = "<span background='#000000'> %1min Load </span>"
+        format = "%1min Load"
 }
 
 memory {
-        format = "<span background='#353535'> %used RAM </span>"
+        format = "<span background='#32344a'> %percentage_used RAM </span>"
+        #format = "<span background='#32344a'> %used RAM </span>"
         #format = "%used | %available"
         threshold_degraded = "1G"
         #format_degraded = "MEMORY < %available"
 }
 
 tztime local {
-        format = "<span background='#000000'> %Y-%m-%d  %H:%M:%S </span>"
+        format = " %Y-%m-%d  %H:%M:%S "
 }
