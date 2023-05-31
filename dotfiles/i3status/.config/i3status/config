@@ -39,6 +39,7 @@ battery all {
 
 disk "/" {
         format = "<span background='#32344a'> %avail </span>"
+        prefix_type = custom
 }
 
 cpu_usage {
