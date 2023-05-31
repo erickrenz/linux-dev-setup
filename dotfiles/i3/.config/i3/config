@@ -204,7 +204,7 @@ bar {
                 statusline #b2b8cf
         
                 # color of border, background, and text
-                focused_workspace       #32344a #7aa2f7 #32344a
+                focused_workspace       #32344a #7aa2f7 #1a1b26
                 active_workspace        #32344a #32344a #b2b8cf
                 inactive_workspace      #32344a #32344a #b2b8cf
                 urgent_workspace        #32344a #e0af68 #32344a
