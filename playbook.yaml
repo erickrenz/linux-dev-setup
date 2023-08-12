@@ -16,7 +16,6 @@
       loop:    
         - tasks/development.yaml
         - tasks/infrastructure.yaml
-        - tasks/stow.yaml
         - tasks/rust.yaml
         - tasks/vscode.yaml
         - tasks/zsh.yaml
@@ -24,15 +23,4 @@
         loop_var: file
       tags:
         - always
-    
-    - name: Home / Work Tasks
-      include_tasks: "{{ file }}"
-      loop:
-        - tasks/git.yaml
-        - tasks/projects.yaml
-      loop_control:
-        loop_var: file
-      tags: 
-        - home
-        - work
-        - never
+

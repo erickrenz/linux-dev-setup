@@ -15,14 +15,8 @@ sudo sh -c "$(curl -fsSL https://raw.githubusercontent.com/erickrenz/linux-dev-s
 ### Usage
 
 ```bash
-# Install ONLY GLOBAL packages and tools
+# Install all packages and tools
 ansible-playbook playbook.yaml
-
-# Install FULL HOME configutation
-ansible-playbook -t home playbook.yaml
-
-# Install FULL WORK configuration
-ansible-playbook -t work playbook.yaml
 ```
 
 ### Optional
@@ -35,31 +29,9 @@ gh auth login
 ```bash
 # edit dnf config
 sudo vi /etc/dnf/dnf.conf
+```
 
-
+```yml
 # enable parallel downloads
 max_parallel_downloads=10
 ```
-
-## Installed Tools
-
-`Git` &nbsp;
-`Zsh` &nbsp;
-`ohmyzsh` &nbsp;
-`GNU C` &nbsp;
-`GNU Make` &nbsp;
-`GNU Stow` &nbsp;
-`bash` &nbsp;
-`flex` &nbsp;
-`bison` &nbsp;
-`openssl` &nbsp;
-`bindgen` &nbsp;
-`binutils` &nbsp;
-`Kernel-devel` &nbsp;
-`Kernel-headers` &nbsp;
-`LLVM` &nbsp;
-`Clang` &nbsp;
-`Rust` &nbsp;
-`Qemu` &nbsp;
-`VSCode` &nbsp;
-`Neovim` &nbsp;
