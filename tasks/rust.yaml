@@ -12,11 +12,3 @@
   shell: source "/home/ekrenz/.cargo/env"
   when: rustup_stats.stat.exists == False
 
-- name: See if cargo excecutable "bacon" exists
-  stat:
-    path: /home/ekrenz/.cargo/bin/bacon
-  register: cargo_bacon
-
-- name: Install "bacon" utility using cargo
-  shell: cargo install bacon -q
-  when: cargo_bacon.stat.exists == False
