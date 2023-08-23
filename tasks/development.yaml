@@ -29,6 +29,7 @@
     - kernel-cross-headers 
     - dtc
     # Embedded/BusyBox dependencies
+    - busybox
     - glibc-static 
     - perl-Pod-Html 
     - openocd 
