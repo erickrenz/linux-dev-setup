@@ -10,6 +10,11 @@ else
   export EDITOR='nvim'
 fi
 
+alias g="git"
+alias gs="git status"
+alias ga="git add ."
+alias gc="git commit"
+
 alias v="nvim"
 alias vim="nvim"
 alias nv="nvim ."
