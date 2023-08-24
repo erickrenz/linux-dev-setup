@@ -53,6 +53,14 @@
     - binutils-arm-linux-gnu 
     - gcc-arm-linux-gnu 
     - gcc-c++-arm-linux-gnu
+    # rust dependencies
+    - rust
+    - rustfmt
+    - rust-analyzer
+    - clippy
+    - cargo
+    - rust-src
+    - rust-std-static
 
 - name: Install other languages and tools
   dnf:
@@ -84,3 +92,10 @@
     - ts-node
     - eslint
     - neovim
+
+- name: Install cargo packages
+  community.general.cargo:
+    name: "{{ item }}"
+    state: latest
+  loop:
+    - bacon
