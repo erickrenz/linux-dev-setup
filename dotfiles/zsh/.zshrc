@@ -10,6 +10,8 @@ else
   export EDITOR='nvim'
 fi
 
+alias l="ls -al"
+
 alias g="git"
 alias gs="git status"
 alias ga="git add ."
@@ -29,3 +31,4 @@ alias 1440="xrandr -s 2560x1440 && feh --bg-fill /home/ekrenz/.dotfiles/wallpape
 alias 2160="xrandr -s 3840x2160 && feh --bg-fill /home/ekrenz/.dotfiles/wallpapers/unix.jpg"
 
 eval "$(starship init zsh)"
+eval "$(direnv hook zsh)"

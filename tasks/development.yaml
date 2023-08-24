@@ -22,6 +22,7 @@
     - pcmciautils 
     - grub-customizer 
     - bc
+    - xxd
     # https://packages.fedoraproject.org/pkgs/kernel/kernel/
     - kernel 
     - kernel-devel 
