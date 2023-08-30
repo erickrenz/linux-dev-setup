@@ -2,6 +2,8 @@
 
 plugins=(git)
 
+export PATH=/home/ekrenz/.cargo/bin:$PATH
+
 export LANG=en_US.UTF-8
 export LC_ALL="C.UTF-8"
 export LC_CTYPE="en_US.UTF-8"
@@ -14,11 +16,7 @@ else
 fi
 
 alias l="ls -al"
-
 alias g="git"
-alias gs="git status"
-alias ga="git add ."
-alias gc="git commit"
 
 alias v="nvim"
 alias vim="nvim"
@@ -33,4 +31,3 @@ alias 1440="xrandr -s 2560x1440 && feh --bg-fill /home/ekrenz/.dotfiles/wallpape
 alias 2160="xrandr -s 3840x2160 && feh --bg-fill /home/ekrenz/.dotfiles/wallpapers/unix.jpg"
 
 eval "$(starship init zsh)"
-eval "$(direnv hook zsh)"

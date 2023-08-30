@@ -54,14 +54,6 @@
     - gcc-arm-linux-gnu 
     - gcc-c++-arm-linux-gnu
     - gcc-aarch64-linux-gnu
-    # rust dependencies
-    - rust
-    - rustfmt
-    - rust-analyzer
-    - clippy
-    - cargo
-    - rust-src
-    - rust-std-static
 
 - name: Install other languages and tools
   dnf:
@@ -95,9 +87,3 @@
     - neovim
     - pnpm
 
-- name: Install cargo packages
-  community.general.cargo:
-    name: "{{ item }}"
-    state: latest
-  loop:
-    - bacon
