@@ -53,6 +53,7 @@
     - binutils-arm-linux-gnu 
     - gcc-arm-linux-gnu 
     - gcc-c++-arm-linux-gnu
+    - gcc-aarch64-linux-gnu
     # rust dependencies
     - rust
     - rustfmt
@@ -92,6 +93,7 @@
     - ts-node
     - eslint
     - neovim
+    - pnpm
 
 - name: Install cargo packages
   community.general.cargo:

@@ -25,6 +25,7 @@ symbol = " "
 symbol = " "
 
 [directory]
+truncation_length = 10
 read_only = " 󰌾"
 
 [docker_context]
