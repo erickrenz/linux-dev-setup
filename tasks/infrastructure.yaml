@@ -35,6 +35,7 @@
     - cmatrix 
     - wget  
     - openssh-server
+    - wireguard-tools
     - stow
     - gh
     - git-crypt
