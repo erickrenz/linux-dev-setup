@@ -43,6 +43,8 @@ require('lazy').setup({
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
   'tpope/vim-sleuth',
+  'mbbill/undotree',
+  'ThePrimeagen/vim-be-good',
 
   -- NOTE: This is where your plugins related to LSP can be installed.
   --  The configuration is done below. Search for lspconfig to find it below.
@@ -150,9 +152,13 @@ require('lazy').setup({
     'nvim-treesitter/nvim-treesitter',
     dependencies = {
       'nvim-treesitter/nvim-treesitter-textobjects',
+      'nvim-treesitter/nvim-treesitter-context',
     },
     build = ":TSUpdate",
   },
+
+  -- Quick Switch Files
+  { 'ThePrimeagen/harpoon', version = '*', dependencies = { 'nvim-lua/plenary.nvim' } },
 
 }, {})
 
@@ -233,6 +239,7 @@ vim.keymap.set('n', '<leader>/', function()
   })
 end, { desc = '[/] Fuzzily search in current buffer' })
 
+vim.keymap.set('n', '<C-t>', require('telescope.builtin').git_files, { desc = '[t]elescope view git files' })
 vim.keymap.set('n', '<leader>sf', require('telescope.builtin').find_files, { desc = '[S]earch [F]iles' })
 vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc = '[S]earch [H]elp' })
 vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
@@ -465,6 +472,23 @@ cmp.setup {
   },
 }
 
+-- harpoon setup
+local mark = require('harpoon.mark')
+local ui = require('harpoon.ui')
+
+vim.keymap.set("n", "<leader>p", mark.add_file)
+vim.keymap.set("n", "<C-h>", ui.toggle_quick_menu)
+
+vim.keymap.set("n", "<C-z>", function() ui.nav_file(1) end)
+vim.keymap.set("n", "<C-x>", function() ui.nav_file(2) end)
+vim.keymap.set("n", "<C-c>", function() ui.nav_file(3) end)
+vim.keymap.set("n", "<C-v>", function() ui.nav_file(4) end)
+
+-- undotree setup
+vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
+
+-- vim-fugitive setup
+vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
