@@ -205,82 +205,28 @@ vim.keymap.set('n', '<leader>/', function()
   })
 end, { desc = '[/] Fuzzily search in current buffer' })
 
-vim.keymap.set('n', '<C-t>', builtin.git_files, { desc = '[t]elescope view git files' })
+vim.keymap.set('n', '<leader>gf', builtin.git_files, { desc = '[G]it [F]iles' })
 vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
 vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
 vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
 vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
 vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
 
--- [[ Configure Treesitter ]]
+-- Configure Treesitter
 require('nvim-treesitter.configs').setup {
   ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'typescript', 'vimdoc', 'vim' },
 
   sync_install = false,
   auto_install = true,
-  ignore_install = { "javascript" },
 
-  highlight = { enable = true },
+  ignore_install = { "javascript" },
   indent = { enable = true, disable = { 'python' } },
-  incremental_selection = {
+
+  highlight = {
     enable = true,
-    keymaps = {
-      init_selection = '<c-space>',
-      node_incremental = '<c-space>',
-      scope_incremental = '<c-s>',
-      node_decremental = '<M-space>',
-    },
-  },
-  textobjects = {
-    select = {
-      enable = true,
-      lookahead = true,
-      keymaps = {
-        ['aa'] = '@parameter.outer',
-        ['ia'] = '@parameter.inner',
-        ['af'] = '@function.outer',
-        ['if'] = '@function.inner',
-        ['ac'] = '@class.outer',
-        ['ic'] = '@class.inner',
-      },
-    },
-    move = {
-      enable = true,
-      set_jumps = true,
-      goto_next_start = {
-        [']m'] = '@function.outer',
-        [']]'] = '@class.outer',
-      },
-      goto_next_end = {
-        [']M'] = '@function.outer',
-        [']['] = '@class.outer',
-      },
-      goto_previous_start = {
-        ['[m'] = '@function.outer',
-        ['[['] = '@class.outer',
-      },
-      goto_previous_end = {
-        ['[M'] = '@function.outer',
-        ['[]'] = '@class.outer',
-      },
-    },
-    swap = {
-      enable = true,
-      swap_next = {
-        ['<leader>a'] = '@parameter.inner',
-      },
-      swap_previous = {
-        ['<leader>A'] = '@parameter.inner',
-      },
-    },
+    additional_vim_regex_highlighting = false,
   },
 }
-
--- Diagnostic keymaps
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic message" })
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = "Go to next diagnostic message" })
-vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = "Open floating diagnostic message" })
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
 
 -- Configure LSP
 local on_attach = function(_, bufnr)
@@ -298,24 +244,46 @@ local on_attach = function(_, bufnr)
   nmap('gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
   nmap('gr', builtin.lsp_references, '[G]oto [R]eferences')
   nmap('gI', vim.lsp.buf.implementation, '[G]oto [I]mplementation')
+  nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
+  nmap('gt', vim.lsp.buf.type_definition, '[G]oto [T]ype Definition')
 
-  nmap('<leader>D', vim.lsp.buf.type_definition, 'Type [D]efinition')
-  nmap('<leader>ds', builtin.lsp_document_symbols, '[D]ocument [S]ymbols')
-  nmap('<leader>ws', builtin.lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
+  nmap('<leader>ssd', builtin.lsp_document_symbols, '[S]earch [S]ymbols in [D]ocument')
+  nmap('<leader>ssw', builtin.lsp_dynamic_workspace_symbols, '[S]earch [S]ymbols in [W]orkspace')
 
   nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
   nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
-  nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
 end
+
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic message" })
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = "Go to next diagnostic message" })
+vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float, { desc = "Open [D]iagnostic message" })
+vim.keymap.set('n', '<leader>e', vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
+
+-- harpoon setup
+local mark = require('harpoon.mark')
+local ui = require('harpoon.ui')
+
+vim.keymap.set("n", "<leader>h", ui.toggle_quick_menu, { desc = "[H]arpoon" })
+vim.keymap.set("n", "<C-h>", mark.add_file, { desc = "Harpoon: Add current file" })
+
+vim.keymap.set("n", "<C-q>", function() ui.nav_file(1) end, { desc = "Harpoon: Go to file #1" })
+vim.keymap.set("n", "<C-w>", function() ui.nav_file(2) end, { desc = "Harpoon: Go to file #2" })
+vim.keymap.set("n", "<C-e>", function() ui.nav_file(3) end, { desc = "Harpoon: Go to file #3" })
+vim.keymap.set("n", "<C-r>", function() ui.nav_file(4) end, { desc = "Harpoon: Go to file #4" })
+
+-- undotree setup
+vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle, { desc = "[U]ndotree" })
+
+-- vim-fugitive setup
+vim.keymap.set("n", "<leader>gs", vim.cmd.Git, { desc = "[G]it [S]tatus" })
 
 -- document existing key chains
 require('which-key').register {
   ['<leader>c'] = { name = '[C]ode', _ = 'which_key_ignore' },
-  ['<leader>d'] = { name = '[D]ocument', _ = 'which_key_ignore' },
   ['<leader>g'] = { name = '[G]it', _ = 'which_key_ignore' },
   ['<leader>r'] = { name = '[R]ename', _ = 'which_key_ignore' },
   ['<leader>s'] = { name = '[S]earch', _ = 'which_key_ignore' },
-  ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
+  ['<leader>ss'] = { name = '[S]earch [S]ymbols', _ = 'which_key_ignore' },
 }
 
 -- mason and mason-lspconfig order is important
@@ -335,7 +303,6 @@ local mason_lspconfig = require 'mason-lspconfig'
 local servers = {
   clangd = {},
   gopls = {},
-  pyright = {},
   rust_analyzer = {},
   tsserver = {},
   lua_ls = {
@@ -391,39 +358,13 @@ cmp.setup {
         fallback()
       end
     end, { 'i', 's' }),
-    ['<S-Tab>'] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        cmp.select_prev_item()
-      elseif luasnip.jumpable(-1) then
-        luasnip.jump(-1)
-      else
-        fallback()
-      end
-    end, { 'i', 's' }),
+    ['<S-Tab>'] = nil,
   },
   sources = {
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
   },
 }
-
--- harpoon setup
-local mark = require('harpoon.mark')
-local ui = require('harpoon.ui')
-
-vim.keymap.set("n", "<leader>p", mark.add_file)
-vim.keymap.set("n", "<C-h>", ui.toggle_quick_menu)
-
-vim.keymap.set("n", "<C-z>", function() ui.nav_file(1) end)
-vim.keymap.set("n", "<C-x>", function() ui.nav_file(2) end)
-vim.keymap.set("n", "<C-c>", function() ui.nav_file(3) end)
-vim.keymap.set("n", "<C-v>", function() ui.nav_file(4) end)
-
--- undotree setup
-vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
-
--- vim-fugitive setup
-vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
