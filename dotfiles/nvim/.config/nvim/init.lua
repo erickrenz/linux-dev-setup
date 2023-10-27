@@ -277,6 +277,17 @@ vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle, { desc = "[U]ndotree" }
 -- vim-fugitive setup
 vim.keymap.set("n", "<leader>gs", vim.cmd.Git, { desc = "[G]it [S]tatus" })
 
+-- word wrap
+vim.keymap.set("n", "<leader>w", function()
+  if vim.wo.wrap then
+    vim.wo.wrap = false
+    vim.wo.linebreak = false
+  else
+    vim.wo.wrap = true
+    vim.wo.linebreak = true
+  end
+end, { desc = "[W]ord wrap toggle" })
+
 -- document existing key chains
 require('which-key').register {
   ['<leader>c'] = { name = '[C]ode', _ = 'which_key_ignore' },
