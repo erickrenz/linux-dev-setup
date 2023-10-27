@@ -251,7 +251,7 @@ local on_attach = function(_, bufnr)
   nmap('<leader>ssw', builtin.lsp_dynamic_workspace_symbols, '[S]earch [S]ymbols in [W]orkspace')
 
   nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
-  nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
+  nmap('<leader>k', vim.lsp.buf.signature_help, 'Signature Documentation')
 end
 
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic message" })
@@ -266,10 +266,10 @@ local ui = require('harpoon.ui')
 vim.keymap.set("n", "<leader>h", ui.toggle_quick_menu, { desc = "[H]arpoon" })
 vim.keymap.set("n", "<C-h>", mark.add_file, { desc = "Harpoon: Add current file" })
 
-vim.keymap.set("n", "<C-q>", function() ui.nav_file(1) end, { desc = "Harpoon: Go to file #1" })
-vim.keymap.set("n", "<C-w>", function() ui.nav_file(2) end, { desc = "Harpoon: Go to file #2" })
-vim.keymap.set("n", "<C-e>", function() ui.nav_file(3) end, { desc = "Harpoon: Go to file #3" })
-vim.keymap.set("n", "<C-r>", function() ui.nav_file(4) end, { desc = "Harpoon: Go to file #4" })
+vim.keymap.set("n", "<C-j>", function() ui.nav_file(1) end, { desc = "Harpoon: Go to file #1" })
+vim.keymap.set("n", "<C-k>", function() ui.nav_file(2) end, { desc = "Harpoon: Go to file #2" })
+vim.keymap.set("n", "<C-l>", function() ui.nav_file(3) end, { desc = "Harpoon: Go to file #3" })
+vim.keymap.set("n", "<C-;>", function() ui.nav_file(4) end, { desc = "Harpoon: Go to file #4" })
 
 -- undotree setup
 vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle, { desc = "[U]ndotree" })
