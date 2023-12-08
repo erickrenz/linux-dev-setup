@@ -20,6 +20,7 @@ require('lazy').setup({
   'tpope/vim-sleuth',
   'mbbill/undotree',
   'ThePrimeagen/vim-be-good',
+  'github/copilot.vim',
 
   {
     -- LSP Configuration & Plugins
