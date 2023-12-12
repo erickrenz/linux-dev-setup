@@ -215,7 +215,7 @@ vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iag
 
 -- Configure Treesitter
 require('nvim-treesitter.configs').setup {
-  ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'typescript', 'vimdoc', 'vim' },
+  ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'typescript', 'markdown', 'markdown_inline' },
 
   sync_install = false,
   auto_install = true,
@@ -370,6 +370,7 @@ cmp.setup {
         fallback()
       end
     end, { 'i', 's' }),
+    -- ['<Tab>'] = nil, -- Uncomment for GitHub Copilot
     ['<S-Tab>'] = nil,
   },
   sources = {
