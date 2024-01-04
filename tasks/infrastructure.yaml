@@ -14,6 +14,7 @@
     - kitty
     - alacritty
     - tmux
+    - fzf
     - jetbrains-mono-fonts-all
 
 - name: Install Neovim

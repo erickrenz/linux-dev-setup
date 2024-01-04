@@ -66,6 +66,9 @@ alias 2160="xrandr -s 3840x2160 && feh --bg-fill /home/ekrenz/.dotfiles/wallpape
 # cargo
 export PATH=/home/ekrenz/.cargo/bin:$PATH
 
+# tmux sessionizer
+bindkey -s ^f "bash /home/ekrenz/.local/scripts/tmux-sessionizer\n"
+
 # opam configuration
 [[ ! -r /home/ekrenz/.opam/opam-init/init.zsh ]] || source /home/ekrenz/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
 

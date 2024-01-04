@@ -20,7 +20,7 @@ require('lazy').setup({
   'tpope/vim-sleuth',
   'mbbill/undotree',
   'ThePrimeagen/vim-be-good',
-  'github/copilot.vim',
+  -- 'github/copilot.vim',
 
   {
     -- LSP Configuration & Plugins
@@ -120,6 +120,13 @@ require('lazy').setup({
       'nvim-treesitter/nvim-treesitter-context',
     },
     build = ":TSUpdate",
+  },
+
+  {
+    -- Pretty lists
+    "folke/trouble.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    opts = {},
   },
 
   -- Quick Switch Files
@@ -259,6 +266,10 @@ vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = "Go to previous dia
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = "Go to next diagnostic message" })
 vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float, { desc = "Open [D]iagnostic message" })
 vim.keymap.set('n', '<leader>e', vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
+
+-- trouble setup
+local trouble = require("trouble")
+vim.keymap.set('n', '<leader>t', function() trouble.toggle() end, { desc = "[T]rouble" })
 
 -- harpoon setup
 local mark = require('harpoon.mark')
