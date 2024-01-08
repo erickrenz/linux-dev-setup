@@ -8,29 +8,15 @@ ZSH_THEME="robbyrussell"
 
 HYPHEN_INSENSITIVE="true"
 # CASE_SENSITIVE="true"
-
-zstyle ':omz:update' mode auto      # update automatically without asking
-zstyle ':omz:update' frequency 5
-
-# Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS="true"
-
-# Uncomment the following line to enable command auto-correction.
 # ENABLE_CORRECTION="true"
-
-# e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
-COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
+# DISABLE_MAGIC_FUNCTIONS="true"
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+zstyle ':omz:update' mode auto      
+zstyle ':omz:update' frequency 5
 
 HIST_STAMPS="yyyy-mm-dd"
 
-# Standard plugins can be found in $ZSH/plugins/
-# Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# Add wisely, as too many plugins slow down shell startup.
 plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
@@ -46,9 +32,6 @@ if [[ -n $SSH_CONNECTION ]]; then
 else
   export EDITOR='nvim'
 fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
 
 alias v="nvim"
 alias vim="nvim"
@@ -68,16 +51,4 @@ export PATH=/home/ekrenz/.cargo/bin:$PATH
 
 # tmux sessionizer
 bindkey -s ^f "bash /home/ekrenz/.local/scripts/tmux-sessionizer\n"
-
-# opam configuration
-[[ ! -r /home/ekrenz/.opam/opam-init/init.zsh ]] || source /home/ekrenz/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
-
-# bun
-[ -s "/home/ekrenz/.bun/_bun" ] && source "/home/ekrenz/.bun/_bun"
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-
-# wasmtime
-export WASMTIME_HOME="$HOME/.wasmtime"
-export PATH="$WASMTIME_HOME/bin:$PATH"
 

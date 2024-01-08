@@ -1,8 +1,11 @@
 lazy-lock.json
 thunar.xml
+tmux-client-*
+dotfiles/tmux/.config/tmux/plugins/
 dotfiles/fonts/.local/share/nvim/
 dotfiles/fonts/.local/share/containers/
 dotfiles/fonts/.local/state/
 dotfiles/fonts/.local/share/pnpm/
 dotfiles/fonts/.local/share/gh/
+dotfiles/fonts/.local/share/tmux/
 dotfiles/xfce4/.config/xfce4/xfconf/

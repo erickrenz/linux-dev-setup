@@ -16,9 +16,11 @@ vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
   'tpope/vim-fugitive',
+  'tpope/vim-obsession',
   'tpope/vim-rhubarb',
   'tpope/vim-sleuth',
   'mbbill/undotree',
+  'laytan/cloak.nvim',
   'ThePrimeagen/vim-be-good',
   -- 'github/copilot.vim',
 
@@ -315,6 +317,9 @@ require('mason-lspconfig').setup()
 
 -- Setup neovim lua configuration
 require('neodev').setup()
+
+-- Setup cloak
+require('cloak').setup()
 
 -- nvim-cmp supports additional completion capabilities
 local capabilities = vim.lsp.protocol.make_client_capabilities()
