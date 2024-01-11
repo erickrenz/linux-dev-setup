@@ -40,7 +40,7 @@ max_parallel_downloads=10
 # ~/.gitconfig
 [user]
     name = Krenz.Eric
-    email = e.krenz@fz-juelich.de
+    email = krenz.eric.krenz@gmail.com
 [sendemail]
     smtpserver = smtp.gmail.com
     smtpserverport = 587
