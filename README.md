@@ -39,7 +39,7 @@ max_parallel_downloads=10
 ```yml
 # ~/.gitconfig
 [user]
-    name = Krenz.Eric
+    name = Eric Krenz
     email = krenz.eric.krenz@gmail.com
 [sendemail]
     smtpserver = smtp.gmail.com
