@@ -53,13 +53,3 @@
   loop:
     - /home/ekrenz/code
     - /home/ekrenz/kernel
-
-- name: Git Clone Linux Kernel Tree - Stable
-  git:
-    repo: 'git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git'
-    dest: /home/ekrenz/kernel/linux_stable
-
-- name: Git Clone Linux Kernel Tree - Mainline
-  git:
-    repo: 'git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git'
-    dest: /home/ekrenz/kernel/linux_mainline
