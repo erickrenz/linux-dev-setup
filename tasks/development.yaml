@@ -32,6 +32,7 @@
     # Misc Kernel Dependencies
     - ncurses-devel
     - git-email
+    - zstd
     # Embedded/BusyBox dependencies
     - busybox
     - glibc-static 
