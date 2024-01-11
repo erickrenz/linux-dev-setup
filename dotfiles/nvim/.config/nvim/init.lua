@@ -21,6 +21,7 @@ require('lazy').setup({
   'tpope/vim-sleuth',
   'mbbill/undotree',
   'laytan/cloak.nvim',
+  'mfussenegger/nvim-lint',
   'ThePrimeagen/vim-be-good',
   -- 'github/copilot.vim',
 
@@ -31,7 +32,7 @@ require('lazy').setup({
       'williamboman/mason.nvim',
       'williamboman/mason-lspconfig.nvim',
       'folke/neodev.nvim',
-      { 'j-hui/fidget.nvim', tag = "legacy", opts = {} },
+      { 'j-hui/fidget.nvim', opts = {} },
     },
   },
 
@@ -40,6 +41,9 @@ require('lazy').setup({
     'hrsh7th/nvim-cmp',
     dependencies = {
       'hrsh7th/cmp-nvim-lsp',
+      'hrsh7th/cmp-cmdline',
+      'hrsh7th/cmp-buffer',
+      'hrsh7th/cmp-path',
       'L3MON4D3/LuaSnip',
       'saadparwaiz1/cmp_luasnip',
       'rafamadriz/friendly-snippets',
@@ -264,14 +268,18 @@ local on_attach = function(_, bufnr)
   nmap('<leader>k', vim.lsp.buf.signature_help, 'Signature Documentation')
 end
 
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic message" })
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = "Go to next diagnostic message" })
-vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float, { desc = "Open [D]iagnostic message" })
-vim.keymap.set('n', '<leader>e', vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
+-- vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic message" })
+-- vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = "Go to next diagnostic message" })
+-- vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float, { desc = "Open [D]iagnostic message" })
+-- vim.keymap.set('n', '<leader>e', vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
 
 -- trouble setup
 local trouble = require("trouble")
 vim.keymap.set('n', '<leader>t', function() trouble.toggle() end, { desc = "[T]rouble" })
+vim.keymap.set('n', '[d', function() trouble.next({ skip_groups = true, jump = true }) end,
+  { desc = "Go to previous trouble item" })
+vim.keymap.set('n', ']d', function() trouble.previous({ skip_groups = true, jump = true }) end,
+  { desc = "Go to next trouble item" })
 
 -- harpoon setup
 local mark = require('harpoon.mark')
@@ -392,6 +400,10 @@ cmp.setup {
   sources = {
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
+    { name = 'path' },
+  },
+  {
+    { name = 'buffer' },
   },
 }
 

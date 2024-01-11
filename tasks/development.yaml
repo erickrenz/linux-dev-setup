@@ -29,6 +29,9 @@
     - kernel-headers 
     - kernel-cross-headers 
     - dtc
+    # Misc Kernel Dependencies
+    - ncurses-devel
+    - git-email
     # Embedded/BusyBox dependencies
     - busybox
     - glibc-static 

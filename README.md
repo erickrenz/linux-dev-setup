@@ -35,3 +35,16 @@ sudo vi /etc/dnf/dnf.conf
 # enable parallel downloads
 max_parallel_downloads=10
 ```
+
+```yml
+# ~/.gitconfig
+[user]
+	name = Krenz.Eric
+	email = e.krenz@fz-juelich.de
+[sendemail]
+    smtpserver = smtp.gmail.com
+    smtpserverport = 587
+    smtpencryption = tls
+    smtpuser = <username>
+    smtppass = <password>
+```
