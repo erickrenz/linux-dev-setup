@@ -33,6 +33,7 @@
     - ncurses-devel
     - git-email
     - zstd
+    - codespell
     # Embedded/BusyBox dependencies
     - busybox
     - glibc-static 
