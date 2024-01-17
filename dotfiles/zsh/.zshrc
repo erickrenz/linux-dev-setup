@@ -42,6 +42,7 @@ alias neo="neofetch && colors"
 alias colors="/home/ekrenz/.dotfiles/dotfiles/alacritty/.config/alacritty/print_colors.sh"
 alias docker="podman"
 
+alias 720="xrandr -s 1280x720 && feh --bg-fill /home/ekrenz/.dotfiles/wallpapers/unix.jpg"
 alias 1080="xrandr -s 1920x1080 && feh --bg-fill /home/ekrenz/.dotfiles/wallpapers/unix.jpg"
 alias 1440="xrandr -s 2560x1440 && feh --bg-fill /home/ekrenz/.dotfiles/wallpapers/unix.jpg"
 alias 2160="xrandr -s 3840x2160 && feh --bg-fill /home/ekrenz/.dotfiles/wallpapers/unix.jpg"
