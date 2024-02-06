@@ -25,7 +25,6 @@ button:hover {
 
 #workspaces button {
     padding: 0 5px;
-    background-color: transparent;
     color: #c0caf5;
 }
 
@@ -35,7 +34,8 @@ button:hover {
 
 #workspaces button.focused {
     background-color: #414868;
-    box-shadow: inset 0 -3px #c0caf5;
+    font-weight: bold;
+    /* box-shadow: inset  -2px #c0caf5; */
 }
 
 #workspaces button.urgent {

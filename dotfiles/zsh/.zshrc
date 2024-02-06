@@ -1,25 +1,4 @@
-### oh-my-zsh .zshrc
-
-# Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
-
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
-
-HYPHEN_INSENSITIVE="true"
-# CASE_SENSITIVE="true"
-# ENABLE_CORRECTION="true"
-# DISABLE_MAGIC_FUNCTIONS="true"
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-zstyle ':omz:update' mode auto      
-zstyle ':omz:update' frequency 5
-
-HIST_STAMPS="yyyy-mm-dd"
-
-plugins=(git)
-
-source $ZSH/oh-my-zsh.sh
+### starship .zshrc 
 
 export LANG=en_US.UTF-8
 export LC_ALL="C.UTF-8"
@@ -53,3 +32,8 @@ export PATH=/home/ekrenz/.cargo/bin:$PATH
 # tmux sessionizer
 bindkey -s ^f "bash /home/ekrenz/.local/scripts/tmux-sessionizer\n"
 
+bindkey '^[[1;5C' forward-word # Ctrl+right arrow
+bindkey '^[[1;5D' backward-word # Ctrl+left arrow
+
+# starship
+eval "$(starship init zsh)"
