@@ -16,6 +16,7 @@ alias v="nvim"
 alias vim="nvim"
 alias nv="nvim ."
 
+alias l="ls -al"
 alias up="sudo dnf upgrade -y"
 alias neo="neofetch && colors"
 alias colors="/home/ekrenz/.dotfiles/dotfiles/alacritty/.config/alacritty/print_colors.sh"
