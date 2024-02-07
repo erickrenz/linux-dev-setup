@@ -46,7 +46,7 @@ require('lazy').setup({
       'hrsh7th/cmp-path',
       'L3MON4D3/LuaSnip',
       'saadparwaiz1/cmp_luasnip',
-      -- 'rafamadriz/friendly-snippets',
+      'rafamadriz/friendly-snippets',
     },
   },
 
@@ -286,7 +286,7 @@ local mark = require('harpoon.mark')
 local ui = require('harpoon.ui')
 
 vim.keymap.set("n", "<leader>h", ui.toggle_quick_menu, { desc = "[H]arpoon" })
-vim.keymap.set("n", "<C-m>", mark.add_file, { desc = "Harpoon: Add current file" })
+vim.keymap.set("n", "<leader>a", mark.add_file, { desc = "[A]dd file to Harpoon" })
 
 vim.keymap.set("n", "<C-h>", function() ui.nav_file(1) end, { desc = "Harpoon: Go to file #1" })
 vim.keymap.set("n", "<C-j>", function() ui.nav_file(2) end, { desc = "Harpoon: Go to file #2" })
@@ -366,7 +366,7 @@ mason_lspconfig.setup_handlers {
 -- nvim-cmp setup
 local cmp = require 'cmp'
 local luasnip = require 'luasnip'
--- require('luasnip.loaders.from_vscode').lazy_load()
+require('luasnip.loaders.from_vscode').lazy_load()
 luasnip.config.setup {}
 
 cmp.setup {

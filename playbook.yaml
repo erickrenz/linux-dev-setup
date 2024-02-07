@@ -1,11 +1,10 @@
 - name: Setup Fedora Developer Workstation
   hosts: all
   pre_tasks:
-    - name: update dnf
+    - name: Update all dnf packages
       dnf:
-        update_cache: true
-        update_only: true
-        state: present
+        name: "*"
+        state: latest
   tasks:
     - name: Global Tasks
       include_tasks: 
@@ -16,9 +15,6 @@
       loop:    
         - tasks/development.yaml
         - tasks/infrastructure.yaml
-        - tasks/rust.yaml
-        - tasks/vscode.yaml
-        - tasks/zsh.yaml
       loop_control:
         loop_var: file
       tags:

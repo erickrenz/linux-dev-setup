@@ -94,3 +94,16 @@
     - neovim
     - pnpm
 
+- name: See if rustup exists
+  stat:
+    path: /home/ekrenz/.cargo/bin/rustup
+  register: rustup_stats
+
+- name: Install rustup
+  shell: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+  when: rustup_stats.stat.exists == False
+  become_user: ekrenz
+
+- name: source rustup
+  shell: source "/home/ekrenz/.cargo/env"
+  when: rustup_stats.stat.exists == False
