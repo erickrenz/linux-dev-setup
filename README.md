@@ -1,4 +1,4 @@
-# .dot files
+# .dotfiles
 
 An Ansible playbook to install developer tools for Fedora/CentOS/RHEL based Linux distros using the `dnf` package manager. 
 
