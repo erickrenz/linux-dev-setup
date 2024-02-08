@@ -13,8 +13,11 @@
           tags:
             - always
       loop:    
-        - tasks/development.yaml
-        - tasks/infrastructure.yaml
+        - tasks/tools.yaml
+        - tasks/languages.yaml
+        - tasks/rust.yaml
+        - tasks/kernel.yaml
+        - tasks/stow.yaml
       loop_control:
         loop_var: file
       tags:

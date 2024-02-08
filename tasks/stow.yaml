@@ -1,0 +1,29 @@
+- name: Create a directory if it does not exist
+  file:
+    path: "{{ item }}"
+    state: directory
+    owner: ekrenz
+  loop:
+    - /home/ekrenz/code
+    - /home/ekrenz/kernel
+    - /home/ekrenz/.local/share/fonts
+
+- name: Check .bashrc for symbolic links (stow)
+  stat:
+    path: /home/ekrenz/.bashrc
+  register: bashrc_stats
+
+- name: Remove conflicting files
+  file:
+    path: "{{ item }}"
+    state: absent
+  when: bashrc_stats.stat.islnk is not defined
+  loop:
+    - /home/ekrenz/.bashrc
+    - /home/ekrenz/.bash_profile
+
+- name: Stow dotfiles 
+  shell: |
+    make -C /home/ekrenz/.dotfiles/dotfiles
+    make -C /home/ekrenz/.dotfiles/fonts
+  when: bashrc_stats.stat.islnk is not defined

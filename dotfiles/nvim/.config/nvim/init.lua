@@ -339,6 +339,7 @@ local mason_lspconfig = require 'mason-lspconfig'
 local servers = {
   clangd = {},
   gopls = {},
+  ltex = {},
   rust_analyzer = {},
   tsserver = {},
   lua_ls = {

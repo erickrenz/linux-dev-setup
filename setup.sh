@@ -15,11 +15,16 @@ dnf install -yq git ansible
 
 # Clone this repository
 echo "[3/4] Cloning repository..."
-cd /home/ekrenz/
-git clone -q https://github.com/erickrenz/.dotfiles.git
-chown -hR ekrenz .dotfiles/
+if  [ ! -d /home/ekrenz/.dotfiles/ ] ; then
+    cd /home/ekrenz/
+    git clone -q https://github.com/erickrenz/.dotfiles.git
+    chown -hR ekrenz .dotfiles/
+fi
 cd /home/ekrenz/.dotfiles
+git pull -q
 
 # Run ansible playbook
 echo "[4/4] Running playbook..."
-ansible-playbook playbook.yaml
+echo -e "[defaults]\ninventory = inventory.yaml" > ./.setup.cfg
+ANSIBLE_CONFIG="./.setup.cfg" ansible-playbook playbook.yaml
+rm .setup.cfg

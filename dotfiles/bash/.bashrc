@@ -36,7 +36,7 @@ export PATH=/home/ekrenz/.cargo/bin:$PATH
 source "$HOME/.cargo/env"
 
 # scripts 
-export PATH=/home/ekrenz/.local/scripts:$PATH
+export PATH=/home/ekrenz/.dotfiles/scripts:$PATH
 bind -x '"\C-f":tmux-sessionizer'
 
 # starship

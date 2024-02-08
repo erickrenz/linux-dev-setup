@@ -1,0 +1,8 @@
+#!/usr/bin/bash
+
+qemu-system-x86_64 -kernel arch/x86_64/boot/bzImage \
+    -initrd ../initramfs-busybox-x86.cpio.gz \
+    -nographic -append "console=ttyS0" \
+    -nic user,model=rtl8139,hostfwd=tcp::5555-:23
+
+reset

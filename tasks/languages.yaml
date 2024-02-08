@@ -1,0 +1,31 @@
+- name: Install programming languages
+  dnf:
+    name: "{{ item }}"
+    state: latest
+  loop:
+    # Node
+    - nodejs
+    - npm
+    # Python
+    - python
+    - python3-pip
+    - python3-wheel
+    - python3-devel
+    - python3-virtualenv
+    # Go
+    - golang
+    # Lua
+    - lua
+    - luarocks
+
+- name: Install npm packages
+  npm:
+    name: "{{ item }}"
+    global: yes
+  loop:
+    - typescript
+    - typescript-language-server
+    - ts-node
+    - eslint
+    - neovim
+    - pnpm
