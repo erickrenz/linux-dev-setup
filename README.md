@@ -41,8 +41,12 @@ max_parallel_downloads=10
 ```
 ```bash
 # install rust dev tools
+cargo install --locked cargo-watch
 cargo install --locked bacon
 cargo install --locked nu
+cargo install --locked cargo-tarpaulin
+cargo install --locked cargo-audit
+cargo install --locked cargo-expand
 ```
 
 ```bash
