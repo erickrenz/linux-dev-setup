@@ -32,6 +32,7 @@ require('lazy').setup({
       'williamboman/mason.nvim',
       'williamboman/mason-lspconfig.nvim',
       'folke/neodev.nvim',
+      'barreiroleo/ltex_extra.nvim',
       { 'j-hui/fidget.nvim', opts = {} },
     },
   },
@@ -355,6 +356,7 @@ mason_lspconfig.setup {
 }
 
 mason_lspconfig.setup_handlers {
+  -- Default handler
   function(server_name)
     require('lspconfig')[server_name].setup {
       capabilities = capabilities,
@@ -362,6 +364,26 @@ mason_lspconfig.setup_handlers {
       settings = servers[server_name],
     }
   end,
+
+  -- Spell/Grammar Checker
+  ['ltex'] = function()
+    require("lspconfig").ltex.setup {
+      capabilities = capabilities,
+      on_attach = function()
+        require("ltex_extra").setup({
+          load_langs = { 'en-US' },
+          path = '.vscode', -- path = vim.fn.expand('~') .. '/.local/share/ltex',
+        })
+      end,
+      settings = {
+        ltex = {
+          completionEnabled = true,
+          language = "en-US",
+        },
+      },
+      filetypes = { "markdown", "tex", "gitcommit", "mail", "plaintex", "rst" },
+    }
+  end
 }
 
 -- nvim-cmp setup
