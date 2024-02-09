@@ -39,6 +39,11 @@ sudo vi /etc/dnf/dnf.conf
 # enable parallel downloads
 max_parallel_downloads=10
 ```
+```bash
+# install rust dev tools
+cargo install --locked bacon
+cargo install --locked nu
+```
 
 ```bash
 # authenticate with github
