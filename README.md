@@ -5,27 +5,33 @@ An Ansible playbook to install developer tools for my preferred Linux distros. T
 Supported package managers:
 - `dnf`: Fedora/RHEL
 - `pacman`: Arch
-- `brew`: MacOS/Darwin
+- `brew`: macOS/Darwin
 
 Features:
 - _langs_: Rust, Go, C, C++, Lua, JS, TS
 - _tools_: Neovim, Tmux, Zsh, Starship
 - _infra_: Sway, Wayland, Waybar, Rofi
-- _theme_: Tokyo Night, JetBrainsMono
+- _theme_: Tokyo Night, JetBrainsMonoNerdFont
 
-_Note: MacOS/Darwin does not support any linux tiling window manager ('infra') features. The Kitty terminal is reccomended in order to use the other features ('langs', 'tools', 'theme')._
+_Note: macOS/Darwin does not support any linux tiling window manager ('infra') features. The Kitty terminal is reccomended in order to use the other features ('langs', 'tools', 'theme')._
 
-## Quick Start
+## Linux Quick Start
 
 1. Download and install a supported distro on a computer or virtual machine:
     - [Fedora](https://fedoraproject.org/workstation/download) using the [Sway Spin](https://fedoraproject.org/spins/sway)
     - [Arch](https://wiki.archlinux.org/title/Installation_guide) using [archinstall]() -> Profile -> Desktop -> Sway
-    - [MacOS](https://developer.apple.com/macos)
 2. Open a terminal and run the following command:
 ```bash
 sudo sh -c "$(curl -fsSL https://raw.githubusercontent.com/erickrenz/.dotfiles/main/setup.sh)"
 ```
 3. Enjoy your fully configured Linux development experience :)
+
+## macOS Quick Start
+
+For [macOS](https://developer.apple.com/macos), simply run the following command:
+```bash
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/erickrenz/.dotfiles/main/setup.sh)"
+```
 
 ### Manual Ansible Usage
 
@@ -37,7 +43,7 @@ ansible-playbook fedora.yaml
 ansible-playbook arch.yaml
 ```
 ```bash
-ansible-playbook macos.yaml
+ANSIBLE_CONFIG="./nosudo.cfg" ansible-playbook macos.yaml
 ```
 
 ### Manual Stow Usage

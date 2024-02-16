@@ -29,7 +29,7 @@ if [[ -e /usr/local/bin/brew ]]; then
     if  [ ! -d /Users/erickrenz/.dotfiles/ ] ; then
         cd /Users/erickrenz/
         git clone -q https://github.com/erickrenz/.dotfiles.git
-        chown -hR erickrenz .dotfiles/
+        sudo chown -hR erickrenz .dotfiles/
     fi
     cd /Users/erickrenz/.dotfiles
     git pull -q
@@ -46,12 +46,10 @@ fi
 
 # Run ansible playbook
 echo "[4/4] Running playbook..."
-echo -e "[defaults]\ninventory = inventory.yaml" > ./.setup.cfg
 if [[ -e /bin/dnf || -e /usr/bin/dnf ]]; then
-    ANSIBLE_CONFIG="./.setup.cfg" ansible-playbook fedora.yaml
+    ANSIBLE_CONFIG="./nosudo.cfg" ansible-playbook fedora.yaml
 elif [[ -e /bin/pacman || -e /usr/bin/pacman ]]; then
-    ANSIBLE_CONFIG="./.setup.cfg" ansible-playbook arch.yaml
+    ANSIBLE_CONFIG="./nosudo.cfg" ansible-playbook arch.yaml
 elif [[ -e /usr/local/bin/brew ]]; then
-    ANSIBLE_CONFIG="./.setup.cfg" ansible-playbook macos.yaml
+    ANSIBLE_CONFIG="./nosudo.cfg" ansible-playbook macos.yaml
 fi
-rm .setup.cfg

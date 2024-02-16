@@ -2,11 +2,12 @@
   file:
     path: "{{ item }}"
     state: directory
-    owner: ekrenz
+    owner: erickrenz
   loop:
     - /Users/erickrenz/code
     - /Users/erickrenz/kernel
     - /Users/erickrenz/.local/share/fonts
+  become_user: erickrenz
 
 - name: Check for .bashrc 
   stat:
@@ -43,13 +44,6 @@
 - name: Rename conflicting .zshrc
   command: mv /Users/erickrenz/.zshrc /Users/erickrenz/.zshrc.pre-dotfiles
   when: zshrc_stats.stat.islnk is defined and zshrc_stats.stat.islnk == false
-
-- name: Make zsh default
-  shell: chsh -s /usr/local/bin/zsh ekrenz
-  when: bashrc_stats.stat.islnk is not defined or bashrc_stats.stat.islnk == false or 
-        bash_profile_stats.stat.islnk is not defined or bash_profile_stats.stat.islnk == false or 
-        profile_stats.stat.islnk is not defined or profile_stats.stat.islnk == false or 
-        zshrc_stats.stat.islnk is not defined or zshrc_stats.stat.islnk == false 
 
 - name: Stow dotfiles 
   shell: |
