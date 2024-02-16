@@ -1,0 +1,20 @@
+- name: Setup MacOS Developer Workstation
+  hosts: all
+  pre_tasks:
+    - name: Update all brew packages
+      homebrew:
+        update_homebrew: true
+        upgrade_all: true
+  tasks:
+    - name: Global Tasks
+      include_tasks: 
+        file: "{{ file }}"
+      loop:    
+        - tasks/darwin/tools.yaml
+        - tasks/darwin/languages.yaml
+        - tasks/darwin/rust.yaml
+        - tasks/node.yaml
+        - tasks/darwin/stow.yaml
+      loop_control:
+        loop_var: file
+

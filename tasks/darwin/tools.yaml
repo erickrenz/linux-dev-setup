@@ -1,0 +1,25 @@
+- name: Install workstation tools
+  homebrew:
+    name: "{{ item }}"
+    state: latest
+  loop:
+    # terminal 
+    - kitty
+    - tmux
+    - fzf
+    # Neovim
+    - neovim
+    - ripgrep
+    # Bash Utils
+    - bash
+    - zsh
+    - stow
+    - ansible
+    - git
+    - gh
+    - jq
+    - parallel
+    - starship
+    - neofetch 
+    - cmatrix 
+    - wget  

@@ -1,68 +1,53 @@
 # .dotfiles
 
-An Ansible playbook to install developer tools for Fedora/CentOS/RHEL based Linux distros using the `dnf` package manager. 
+An Ansible playbook to install developer tools for my preferred Linux distros. The goal of this project is to quickly get a development system up and running by installing all the required packages needed for a development workstation. 
 
-This goal of this project is to quickly get a development system up and running by installing all the required packages needed for a development workstation. No prerequisites are required other than running a RHEL (Red Hat Enterprise Linux) based Linux distro. 
+Supported package managers:
+- `dnf`: Fedora/RHEL
+- `pacman`: Arch
+- `brew`: MacOS/Darwin
+
+Features:
+- _langs_: Rust, Go, C, C++, Lua, JS, TS
+- _tools_: Neovim, Tmux, Zsh, Starship
+- _infra_: Sway, Wayland, Waybar, Rofi
+- _theme_: Tokyo Night, JetBrainsMono
+
+_Note: MacOS/Darwin does not support any linux tiling window manager ('infra') features. The Kitty terminal is reccomended in order to use the other features ('langs', 'tools', 'theme')._
 
 ## Quick Start
 
-1. Download the [Fedora Sway Spin](https://fedoraproject.org/spins/sway) Live ISO and install it on a computer or virtual machine.
+1. Download and install a supported distro on a computer or virtual machine:
+    - [Fedora](https://fedoraproject.org/workstation/download) using the [Sway Spin](https://fedoraproject.org/spins/sway)
+    - [Arch](https://wiki.archlinux.org/title/Installation_guide) using [archinstall]() -> Profile -> Desktop -> Sway
+    - [MacOS](https://developer.apple.com/macos)
 2. Open a terminal and run the following command:
 ```bash
 sudo sh -c "$(curl -fsSL https://raw.githubusercontent.com/erickrenz/.dotfiles/main/setup.sh)"
 ```
 3. Enjoy your fully configured Linux development experience :)
 
-### Optional: Manual Ansible Usage
+### Manual Ansible Usage
 
+Install all packages and tools for your specific distro:
 ```bash
-# Install all packages and tools
-ansible-playbook playbook.yaml
+ansible-playbook fedora.yaml
+```
+```bash
+ansible-playbook arch.yaml
+```
+```bash
+ansible-playbook macos.yaml
 ```
 
-### Optional: Manual Stow Usage
+### Manual Stow Usage
 
+Move to the config or fonts subdirectory:
 ```bash
-# Move to the dotfiles subdirectory
-cd dotfiles/
-# Stow all directories
+cd config/
+```
+... then stow all directories using the included Makefile:
+```bash
 make
 ```
 
-### Optional: Additional Configuration
-
-```bash
-# Open dnf config file
-sudo vi /etc/dnf/dnf.conf
-
-# ... then edit dnf.conf to
-# enable parallel downloads
-max_parallel_downloads=10
-```
-```bash
-# install rust dev tools
-cargo install --locked cargo-watch
-cargo install --locked bacon
-cargo install --locked nu
-cargo install --locked cargo-tarpaulin
-cargo install --locked cargo-audit
-cargo install --locked cargo-expand
-```
-
-```bash
-# authenticate with github
-gh auth login
-```
-
-```yml
-# ~/.gitconfig for kernel development
-[user]
-    name = Eric Krenz
-    email = krenz.eric.krenz@gmail.com
-[sendemail]
-    smtpserver = smtp.gmail.com
-    smtpserverport = 587
-    smtpencryption = tls
-    smtpuser = <username>
-    smtppass = <password>
-```

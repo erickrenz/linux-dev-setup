@@ -1,0 +1,20 @@
+- name: Install programming languages
+  homebrew:
+    name: "{{ item }}"
+    state: latest
+  loop:
+    # LLVM and Clang
+    - gcc
+    - llvm
+    - make
+    - cmake 
+    # Python
+    - python
+    # Node
+    - node
+    # Go
+    - go
+    # Lua
+    - lua
+    - luarocks
+

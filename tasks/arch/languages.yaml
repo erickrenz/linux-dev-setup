@@ -1,0 +1,25 @@
+- name: Install programming languages
+  pacman:
+    name: "{{ item }}"
+    state: latest
+  loop:
+    # Install groups are the "build-essential" equivalent for Arch
+    - base-devel
+    # LLVM and Clang
+    - llvm 
+    - clang 
+    - cmake 
+    - lld
+    - lldb 
+    - clang-tools-extra
+    # Python
+    - python
+    # Node
+    - nodejs
+    - npm
+    # Go
+    - go
+    # Lua
+    - lua
+    - luarocks
+

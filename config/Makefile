@@ -1,9 +1,9 @@
 UNAME_S := $(shell uname -s)
 ifeq ($(UNAME_S), Linux) 
-	TARGET_DIR := /home/ekrenz/.local/share/fonts/ 
+	TARGET_DIR := /home/ekrenz/
 endif
 ifeq ($(UNAME_S), Darwin) 
-	TARGET_DIR := /Users/erickrenz/.local/share/fonts/ 
+	TARGET_DIR := /Users/erickrenz/
 endif
 
 all:

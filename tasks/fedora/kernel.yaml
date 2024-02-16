@@ -1,0 +1,45 @@
+- name: Install kernel and embedded development tools
+  dnf:
+    name: "{{ item }}"
+    state: latest
+  loop:
+    # https://www.kernel.org/doc/html/latest/process/changes.html
+    - dwarves 
+    - bindgen 
+    - python3-sphinx 
+    - openssl 
+    - pcmciautils 
+    - grub-customizer 
+    - bc
+    - xxd
+    # https://packages.fedoraproject.org/pkgs/kernel/kernel/
+    - kernel 
+    - kernel-devel 
+    - kernel-headers 
+    - kernel-cross-headers 
+    - dtc
+    # Misc Kernel Dependencies
+    - ncurses-devel
+    - git-email
+    - zstd
+    - codespell
+    - sparse
+    - coccinelle
+    # Embedded/BusyBox dependencies
+    - busybox
+    - glibc-static 
+    - perl-Pod-Html 
+    - openocd 
+    - glibc-devel.i686 
+    - glibc-devel.x86_64
+    # Qemu and Virtualization 
+    # https://www.qemu.org/download/#linux
+    - qemu 
+    - qemu-kvm 
+    - "@Virtualization"
+    # Cross-build binary utilities
+    - binutils-arm-linux-gnu 
+    - gcc-arm-linux-gnu 
+    - gcc-c++-arm-linux-gnu
+    - gcc-aarch64-linux-gnu
+

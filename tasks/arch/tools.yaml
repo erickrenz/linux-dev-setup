@@ -1,0 +1,46 @@
+- name: Install workstation tools
+  pacman:
+    name: "{{ item }}"
+    state: latest
+  loop:
+    # Sway 
+    - sway
+    - foot
+    - tmux
+    - fzf
+    - waybar
+    - rofi
+    # Neovim
+    - neovim
+    - ripgrep
+    # Misc Kernel Dependencies
+    - openssl 
+    - grub-customizer 
+    - bc
+    - xxd
+    - dtc
+    - zstd
+    - codespell
+    - sparse
+    # Embedded/BusyBox dependencies
+    - busybox
+    - openocd 
+    # Qemu and Virtualization 
+    - qemu 
+    # Bash Utils
+    - bash
+    - zsh
+    - podman 
+    - stow
+    - ansible
+    - git
+    - github-cli
+    - jq
+    - parallel
+    - starship
+    - neofetch 
+    - cmatrix 
+    - wget  
+    - wireguard-tools
+    - git-crypt
+    - direnv

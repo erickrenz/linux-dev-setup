@@ -1,0 +1,21 @@
+- name: Setup Fedora Developer Workstation
+  hosts: all
+  pre_tasks:
+    - name: Update all dnf packages
+      dnf:
+        name: "*"
+        state: latest
+  tasks:
+    - name: Global Tasks
+      include_tasks: 
+        file: "{{ file }}"
+      loop:    
+        - tasks/fedora/tools.yaml
+        - tasks/fedora/languages.yaml
+        - tasks/fedora/kernel.yaml
+        - tasks/rust.yaml
+        - tasks/node.yaml
+        - tasks/stow.yaml
+      loop_control:
+        loop_var: file
+

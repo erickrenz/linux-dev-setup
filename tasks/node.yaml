@@ -1,0 +1,11 @@
+- name: Install npm packages
+  npm:
+    name: "{{ item }}"
+    global: yes
+  loop:
+    - typescript
+    - typescript-language-server
+    - ts-node
+    - eslint
+    - neovim
+    - pnpm

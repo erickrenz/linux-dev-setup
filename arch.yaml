@@ -1,0 +1,20 @@
+- name: Setup Arch Developer Workstation
+  hosts: all
+  pre_tasks:
+    - name: Update all pacman packages
+      pacman:
+        update_cache: true
+        upgrade: true
+  tasks:
+    - name: Global Tasks
+      include_tasks: 
+        file: "{{ file }}"
+      loop:    
+        - tasks/arch/tools.yaml
+        - tasks/arch/languages.yaml
+        - tasks/rust.yaml
+        - tasks/node.yaml
+        - tasks/stow.yaml
+      loop_control:
+        loop_var: file
+

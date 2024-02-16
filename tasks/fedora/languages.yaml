@@ -1,0 +1,31 @@
+- name: Install programming languages
+  dnf:
+    name: "{{ item }}"
+    state: latest
+  loop:
+    # Install groups are the "build-essential" equivalent for Fedora
+    - '@Development Tools'
+    - '@C Development Tools and Libraries'
+    # LLVM and Clang
+    # https://packages.fedoraproject.org/pkgs/llvm/llvm/
+    - llvm 
+    - clang 
+    - cmake 
+    - lld
+    - lldb 
+    - clang-tools-extra
+    # Node
+    - nodejs
+    - npm
+    # Python
+    - python
+    - python3-pip
+    - python3-wheel
+    - python3-devel
+    - python3-virtualenv
+    # Go
+    - golang
+    # Lua
+    - lua
+    - luarocks
+

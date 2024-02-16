@@ -1,0 +1,38 @@
+- name: Enable copr for starship
+  community.general.copr:
+    name: atim/starship
+
+- name: Install workstation tools
+  dnf:
+    name: "{{ item }}"
+    state: latest
+  loop:
+    # Sway 
+    - sway
+    - foot
+    - tmux
+    - fzf
+    - jetbrains-mono-fonts-all
+    # Neovim
+    - neovim
+    - python3-neovim
+    - ripgrep
+    # Bash Utils
+    - bash
+    - zsh
+    - podman 
+    - stow
+    - ansible
+    - git
+    - gh
+    - jq
+    - parallel
+    - starship
+    - neofetch 
+    - cmatrix 
+    - wget  
+    - openssh-server
+    - wireguard-tools
+    - git-crypt
+    - direnv
+    - util-linux-user

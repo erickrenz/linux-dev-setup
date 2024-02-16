@@ -4,48 +4,48 @@
     state: directory
     owner: ekrenz
   loop:
-    - /home/ekrenz/code
-    - /home/ekrenz/kernel
-    - /home/ekrenz/.local/share/fonts
+    - /Users/erickrenz/code
+    - /Users/erickrenz/kernel
+    - /Users/erickrenz/.local/share/fonts
 
 - name: Check for .bashrc 
   stat:
-    path: /home/ekrenz/.bashrc
+    path: /Users/erickrenz/.bashrc
   register: bashrc_stats
 
 - name: Rename conflicting .bashrc
-  command: mv /home/ekrenz/.bashrc /home/ekrenz/.bashrc.pre-dotfiles
+  command: mv /Users/erickrenz/.bashrc /Users/erickrenz/.bashrc.pre-dotfiles
   when: bashrc_stats.stat.islnk is defined and bashrc_stats.stat.islnk == false
 
 - name: Check for .bash_profile 
   stat:
-    path: /home/ekrenz/.bash_profile
+    path: /Users/erickrenz/.bash_profile
   register: bash_profile_stats
 
 - name: Rename conflicting .bash_profile
-  command: mv /home/ekrenz/.bash_profile /home/ekrenz/.bash_profile.pre-dotfiles
+  command: mv /Users/erickrenz/.bash_profile /Users/erickrenz/.bash_profile.pre-dotfiles
   when: bash_profile_stats.stat.islnk is defined and bash_profile_stats.stat.islnk == false
 
 - name: Check for .profile
   stat:
-    path: /home/ekrenz/.profile
+    path: /Users/erickrenz/.profile
   register: profile_stats
 
 - name: Rename conflicting .profile
-  command: mv /home/ekrenz/.profile /home/ekrenz/.profile.pre-dotfiles
+  command: mv /Users/erickrenz/.profile /Users/erickrenz/.profile.pre-dotfiles
   when: profile_stats.stat.islnk is defined and profile_stats.stat.islnk == false
 
 - name: Check for .zshrc 
   stat:
-    path: /home/ekrenz/.zshrc
+    path: /Users/erickrenz/.zshrc
   register: zshrc_stats
 
 - name: Rename conflicting .zshrc
-  command: mv /home/ekrenz/.zshrc /home/ekrenz/.zshrc.pre-dotfiles
+  command: mv /Users/erickrenz/.zshrc /Users/erickrenz/.zshrc.pre-dotfiles
   when: zshrc_stats.stat.islnk is defined and zshrc_stats.stat.islnk == false
 
 - name: Make zsh default
-  shell: chsh -s /usr/bin/zsh ekrenz
+  shell: chsh -s /usr/local/bin/zsh ekrenz
   when: bashrc_stats.stat.islnk is not defined or bashrc_stats.stat.islnk == false or 
         bash_profile_stats.stat.islnk is not defined or bash_profile_stats.stat.islnk == false or 
         profile_stats.stat.islnk is not defined or profile_stats.stat.islnk == false or 
@@ -53,8 +53,8 @@
 
 - name: Stow dotfiles 
   shell: |
-    make -C /home/ekrenz/.dotfiles/config
-    make -C /home/ekrenz/.dotfiles/fonts
+    make -C /Users/erickrenz/.dotfiles/config
+    make -C /Users/erickrenz/.dotfiles/fonts
   when: bashrc_stats.stat.islnk is not defined or bashrc_stats.stat.islnk == false or 
         bash_profile_stats.stat.islnk is not defined or bash_profile_stats.stat.islnk == false or 
         profile_stats.stat.islnk is not defined or profile_stats.stat.islnk == false or 
