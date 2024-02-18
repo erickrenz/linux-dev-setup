@@ -1,10 +1,12 @@
 # .profile
 
 # User specific aliases and functions
-export LANG=en_US.UTF-8
-export LC_ALL="C.UTF-8"
-export LC_CTYPE="en_US.UTF-8"
-export LC_MESSAGES="en_US.UTF-8"
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+  export LANG=en_US.UTF-8
+  export LC_ALL="C.UTF-8"
+  export LC_CTYPE="en_US.UTF-8"
+  export LC_MESSAGES="en_US.UTF-8"
+fi
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then

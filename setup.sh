@@ -29,7 +29,6 @@ if [[ -e /usr/local/bin/brew ]]; then
     if  [ ! -d /Users/erickrenz/.dotfiles/ ] ; then
         cd /Users/erickrenz/
         git clone -q https://github.com/erickrenz/.dotfiles.git
-        sudo chown -hR erickrenz .dotfiles/
     fi
     cd /Users/erickrenz/.dotfiles
     git pull -q
