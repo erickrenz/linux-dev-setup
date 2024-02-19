@@ -44,12 +44,12 @@
   command: mv /home/ekrenz/.zshrc /home/ekrenz/.zshrc.pre-dotfiles
   when: zshrc_stats.stat.islnk is defined and zshrc_stats.stat.islnk == false
 
-- name: Make zsh default
-  shell: chsh -s /usr/bin/zsh ekrenz
-  when: bashrc_stats.stat.islnk is not defined or bashrc_stats.stat.islnk == false or 
-        bash_profile_stats.stat.islnk is not defined or bash_profile_stats.stat.islnk == false or 
-        profile_stats.stat.islnk is not defined or profile_stats.stat.islnk == false or 
-        zshrc_stats.stat.islnk is not defined or zshrc_stats.stat.islnk == false 
+# - name: Make zsh default
+#   shell: chsh -s /usr/bin/zsh ekrenz
+#   when: bashrc_stats.stat.islnk is not defined or bashrc_stats.stat.islnk == false or 
+#         bash_profile_stats.stat.islnk is not defined or bash_profile_stats.stat.islnk == false or 
+#         profile_stats.stat.islnk is not defined or profile_stats.stat.islnk == false or 
+#         zshrc_stats.stat.islnk is not defined or zshrc_stats.stat.islnk == false 
 
 - name: Stow dotfiles 
   shell: |
