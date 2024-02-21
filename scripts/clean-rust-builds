@@ -1,0 +1,4 @@
+#!/usr/bin/bash
+
+find ~/code -type f -name 'Cargo.toml' -print -execdir cargo +stable clean \;
+
