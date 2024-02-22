@@ -40,6 +40,14 @@ export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
 --color=info:#7aa2f7,prompt:#7dcfff,pointer:#7dcfff \
 --color=marker:#9ece6a,spinner:#9ece6a,header:#9ece6a"
 
+# x11 resize virtual windows
+if [[ "$XDG_SESSION_TYPE" == "x11" ]]; then
+  alias 720="xrandr -s 1280x720 && feh --bg-fill /home/ekrenz/.dotfiles/wallpapers/unix.jpg"
+  alias 1080="xrandr -s 1920x1080 && feh --bg-fill /home/ekrenz/.dotfiles/wallpapers/unix.jpg"
+  alias 1440="xrandr -s 2560x1440 && feh --bg-fill /home/ekrenz/.dotfiles/wallpapers/unix.jpg"
+  alias 2160="xrandr -s 3840x2160 && feh --bg-fill /home/ekrenz/.dotfiles/wallpapers/unix.jpg"
+fi
+
 # scripts
 export PATH="$HOME/.dotfiles/scripts:$PATH"
 
