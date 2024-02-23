@@ -28,4 +28,10 @@
     # Lua
     - lua
     - luarocks
-
+    # nvim checkhealth
+    - ruby
+    - java
+    - julia
+    - perl
+    - php
+    - composer

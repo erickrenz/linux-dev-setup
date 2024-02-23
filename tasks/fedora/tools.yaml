@@ -17,6 +17,7 @@
     - neovim
     - python3-neovim
     - ripgrep
+    - fd-find
     # Bash Utils
     - bash
     - zsh
