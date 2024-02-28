@@ -5,7 +5,7 @@
     owner: ekrenz
   loop:
     - /home/ekrenz/code
-    - /home/ekrenz/kernel
+    - /home/ekrenz/work
     - /home/ekrenz/.local/share/fonts
 
 - name: Check for .bashrc 

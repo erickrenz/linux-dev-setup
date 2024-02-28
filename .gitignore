@@ -2,4 +2,9 @@ lazy-lock.json
 thunar.xml
 .setup.cfg
 tmux-client-*
-config/tmux/.config/tmux/plugins/
+
+config/tmux/*
+!config/tmux/.config/tmux/tmux.conf
+
+config/xfce4/*
+!config/xfce4/.config/xfce4/terminal/terminalrc
