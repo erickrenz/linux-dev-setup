@@ -22,7 +22,6 @@ alias nv="nvim ."
 alias l="ls -al --color=auto"
 alias ls="ls --color=auto"
 alias neo="neofetch"
-alias docker="podman"
 
 if [[ -e /bin/dnf || -e /usr/bin/dnf ]]; then
   alias up="sudo dnf upgrade -y"
@@ -30,7 +29,6 @@ elif [[ -e /bin/pacman || -e /usr/bin/pacman ]]; then
   alias up="sudo pacman -Syu"
 elif [[ -e /usr/local/bin/brew ]]; then
   alias up="brew upgrade -q"
-  alias docker="docker"
 fi
 
 # fzf colors
