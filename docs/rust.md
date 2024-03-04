@@ -18,3 +18,6 @@ cargo install --locked cargo-audit
 ```bash
 cargo install --locked cargo-expand
 ```
+```bash
+cargo install --locked cargo-udeps
+```
