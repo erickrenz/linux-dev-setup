@@ -342,6 +342,7 @@ local servers = {
   clangd = {},
   gopls = {},
   ltex = {},
+  pyright = {},
   rust_analyzer = {},
   tsserver = {},
   lua_ls = {
