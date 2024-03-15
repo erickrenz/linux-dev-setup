@@ -49,6 +49,10 @@ fi
 # scripts
 export PATH="$HOME/.dotfiles/scripts:$PATH"
 
+# go
+export PATH="$HOME/go/bin:$PATH"
+export PATH="/usr/local/go/bin:$PATH"
+
 # cargo
 export PATH="$HOME/.cargo/bin:$PATH"
 source "$HOME/.cargo/env"
