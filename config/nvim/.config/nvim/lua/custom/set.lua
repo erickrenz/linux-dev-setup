@@ -34,10 +34,10 @@ vim.o.wrap = false
 
 vim.o.swapfile = false
 vim.o.backup = false
-vim.o.undodir = os.getenv("HOME") .. "/.vim/undodir"
+vim.o.undodir = os.getenv 'HOME' .. '/.vim/undodir'
 vim.o.undofile = true
 
 vim.o.updatetime = 50
-vim.o.colorcolumn = "80"
+vim.o.colorcolumn = '80'
 
 vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
