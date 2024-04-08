@@ -47,7 +47,20 @@ return {
 
     local servers = {
       clangd = {},
-      gopls = {},
+      gopls = {
+        settings = {
+          gopls = {
+            completeUnimported = true,
+            usePlaceholders = true,
+            analyses = {
+              fieldalignment = true,
+              unusedparams = true,
+              unusedvariable = true,
+              unusedwrite = true,
+            },
+          },
+        },
+      },
       -- ltex = {},
       lua_ls = {},
       pyright = {},

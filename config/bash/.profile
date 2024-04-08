@@ -15,6 +15,11 @@ else
   export EDITOR='nvim'
 fi
 
+# Source global definitions
+if [ -f /home/ekrenz/.profile-tmp ]; then
+    . /home/ekrenz/.profile-tmp
+fi
+
 alias v="nvim"
 alias vim="nvim"
 alias nv="nvim ."
