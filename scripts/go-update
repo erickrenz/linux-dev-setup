@@ -1,0 +1,55 @@
+#!/usr/bin/bash
+
+# go-update: a simple bash script to update your go version
+
+if [[ $PATH != ?(*:)/usr/local/go/bin?(:*) ]]; then
+    echo "Add /usr/local/go/bin to the PATH environment variable:"
+    echo
+    echo "    export PATH=\$PATH:/usr/local/go/bin"
+    echo
+fi
+
+GO_VERSION=$(go version)
+# go version go1.22.2 linux/amd64
+
+CURRENT_GO_VERSION=$(go version | awk '{print $3}' | awk '{print substr($0, 3)}' )
+# go1.22.2
+
+GO_VERSION_HTML=$(wget -q -O - https://go.dev/dl/ | grep ".linux-amd64.tar.gz" | head -2 | tail -1) || "ERROR"
+# <span>go1.22.2.linux-amd64.tar.gz</span>
+
+if [[ $GO_VERSION_HTML == "ERROR" || $GO_VERSION_HTML != *"go1."* ]]; then
+    echo "Something went terribly wrong :("
+    echo
+    echo "The go downloads html might have changed."
+    echo "URL: https://go.dev/dl/"
+    exit 1
+fi
+
+GO_TAR_GZ=$(echo $GO_VERSION_HTML | grep -oP '(?<=<span>).*?(?=</span>)')
+# go1.22.2.linux-amd64.tar.gz
+
+if [[ $GO_TAR_GZ = *"$CURRENT_GO_VERSION"* ]]; then
+    echo $GO_VERSION
+    echo "you are currently on the latest version!"
+    exit 0
+fi
+
+DOWNLOAD_URL="https://go.dev/dl/$GO_TAR_GZ"
+echo "New version: $GO_TAR_GZ"
+if [[ ! -e /tmp/$GO_TAR_GZ ]]; then
+    wget -P /tmp/ "$DOWNLOAD_URL" 2>/dev/null
+fi
+if sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf /tmp/$GO_TAR_GZ; then
+    rm /tmp/$GO_TAR_GZ
+    NEW_VERSION=$(go version)
+    echo
+    echo "Updated:"
+    echo
+    echo "    $NEW_VERSION"
+    echo
+    exit 0
+else 
+    echo "Error: go was not updated"
+    exit 1
+fi
