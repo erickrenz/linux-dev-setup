@@ -13,21 +13,19 @@ RESET='\033[0m'
 
 if [[ -e /usr/local/go/bin/go ]]; then
     CURRENT_GO_VERSION=$(go version | awk '{print $3}' | awk '{print substr($0, 3)}')
-    # go1.22.2
-fi
+fi  # go1.22.2
 
 if [ "$#" -eq 0 ]; then
     GO_VERSION_HTML=$(wget -q -O - https://go.dev/dl/ | grep ".linux-amd64.tar.gz" | grep "<td" | head -1) || "ERROR"
-else
+else # <td class="filename"><a class="download" href="/dl/go1.22.2.linux-amd64.tar.gz">go1.22.2.linux-amd64.tar.gz</a></td>
     GO_VERSION_HTML=$(wget -q -O - https://go.dev/dl/ | grep ".linux-amd64.tar.gz" | grep "<td" | grep $1 | head -1) || "ERROR"
 fi
-# <td class="filename"><a class="download" href="/dl/go1.22.2.linux-amd64.tar.gz">go1.22.2.linux-amd64.tar.gz</a></td>
 
 GO_TAR_GZ=$(echo $GO_VERSION_HTML | grep -oP '(?<=href=")[^"]*.tar.gz' | sed 's/^.*\///')
 # go1.22.2.linux-amd64.tar.gz
 
 if [[ $GO_VERSION_HTML == "ERROR" || $GO_VERSION_HTML != *"go1."* ]]; then
-    echo -e "${RED}error:${RESET} the go downloads html might have changed."
+    echo -e "${RED}error:${RESET} the go downloads html might have changed"
     echo "  url: https://go.dev/dl/"
     exit 1
 fi
@@ -40,10 +38,11 @@ fi
 if [[ ! -e /tmp/$GO_TAR_GZ ]]; then
     wget -P /tmp/ "https://go.dev/dl/$GO_TAR_GZ" 2>/dev/null
 fi
+
 if sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf /tmp/$GO_TAR_GZ; then
     echo -e "${GREEN}updated:${RESET} $(go version)"
 else 
-    echo -e "${RED}error:${RESET} go was not updated and installed"
+    echo -e "${RED}error:${RESET} go install to /usr/local/go failed"
     exit 1
 fi
 
