@@ -5,47 +5,49 @@
 #     relative version:    $ goupdate 1.22
 #     specific version:    $ goupdate 1.22.2
 
+RED='\033[31m'
+YELLOW='\033[33m'
+GREEN='\033[0;32m'
+BLUE='\033[34m'
+RESET='\033[0m'
+
 if [[ -e /usr/local/go/bin/go ]]; then
     CURRENT_GO_VERSION=$(go version | awk '{print $3}' | awk '{print substr($0, 3)}')
     # go1.22.2
-
-    if [[ $PATH != ?(*:)/usr/local/go/bin?(:*) ]]; then
-        echo "add /usr/local/go/bin to the PATH environment variable:"
-        echo "    export PATH=\$PATH:/usr/local/go/bin"
-    fi
 fi
 
 if [ "$#" -eq 0 ]; then
-    GO_VERSION_HTML=$(wget -q -O - https://go.dev/dl/ | grep ".linux-amd64.tar.gz" | grep span) || "ERROR"
-    # <span>go1.22.2.linux-amd64.tar.gz</span>
-    GO_TAR_GZ=$(echo $GO_VERSION_HTML | grep -oP '(?<=<span>).*?(?=</span>)')
-    # go1.22.2.linux-amd64.tar.gz
+    GO_VERSION_HTML=$(wget -q -O - https://go.dev/dl/ | grep ".linux-amd64.tar.gz" | grep "<td" | head -1) || "ERROR"
 else
     GO_VERSION_HTML=$(wget -q -O - https://go.dev/dl/ | grep ".linux-amd64.tar.gz" | grep "<td" | grep $1 | head -1) || "ERROR"
-    # <td class="filename"><a class="download" href="/dl/go1.22.2.linux-amd64.tar.gz">go1.22.2.linux-amd64.tar.gz</a></td>
-    GO_TAR_GZ=$(echo $GO_VERSION_HTML | grep -oP '(?<=href=")[^"]*.tar.gz' | sed 's/^.*\///')
-    # go1.22.2.linux-amd64.tar.gz
 fi
+# <td class="filename"><a class="download" href="/dl/go1.22.2.linux-amd64.tar.gz">go1.22.2.linux-amd64.tar.gz</a></td>
+
+GO_TAR_GZ=$(echo $GO_VERSION_HTML | grep -oP '(?<=href=")[^"]*.tar.gz' | sed 's/^.*\///')
+# go1.22.2.linux-amd64.tar.gz
 
 if [[ $GO_VERSION_HTML == "ERROR" || $GO_VERSION_HTML != *"go1."* ]]; then
-    echo "ERROR: the go downloads html might have changed."
-    echo "  URL: https://go.dev/dl/"
+    echo -e "${RED}error:${RESET} the go downloads html might have changed."
+    echo "  url: https://go.dev/dl/"
     exit 1
 fi
 
 if [[ $GO_TAR_GZ == "go$CURRENT_GO_VERSION.linux-amd64.tar.gz" ]]; then
-    echo -e "\033[34munchanged:\033[0m $(go version)"
+    echo -e "${BLUE}unchanged:${RESET} $(go version)"
     exit 0
 fi
 
-DOWNLOAD_URL="https://go.dev/dl/$GO_TAR_GZ"
 if [[ ! -e /tmp/$GO_TAR_GZ ]]; then
-    wget -P /tmp/ "$DOWNLOAD_URL" 2>/dev/null
+    wget -P /tmp/ "https://go.dev/dl/$GO_TAR_GZ" 2>/dev/null
 fi
 if sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf /tmp/$GO_TAR_GZ; then
-    echo -e "\033[0;32mupdated:\033[0m $(go version)"
-    exit 0
+    echo -e "${GREEN}updated:${RESET} $(go version)"
 else 
-    echo "ERROR: go was not updated and installed"
+    echo -e "${RED}error:${RESET} go was not updated and installed"
     exit 1
+fi
+
+if [[ $PATH != ?(*:)/usr/local/go/bin?(:*) ]]; then
+    echo -e "${YELLOW}warning:${RESET} add /usr/local/go/bin to the PATH environment variable:"
+    echo "    export PATH=\$PATH:/usr/local/go/bin"
 fi
