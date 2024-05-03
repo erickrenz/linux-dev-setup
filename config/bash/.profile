@@ -12,7 +12,9 @@ fi
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 else
+  export TERM='xterm-256color'
   export EDITOR='nvim'
+  export VISUAL='nvim'
 fi
 
 # Source global definitions
