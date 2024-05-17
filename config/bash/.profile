@@ -12,7 +12,9 @@ fi
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 else
+  export TERM='xterm-256color'
   export EDITOR='nvim'
+  export VISUAL='nvim'
 fi
 
 # Source global definitions
@@ -57,6 +59,9 @@ export PATH="$HOME/.dotfiles/scripts:$PATH"
 # go
 export PATH="$HOME/go/bin:$PATH"
 export PATH="/usr/local/go/bin:$PATH"
+
+# zig
+export PATH="/usr/local/zig:$PATH"
 
 # cargo
 export PATH="$HOME/.cargo/bin:$PATH"
