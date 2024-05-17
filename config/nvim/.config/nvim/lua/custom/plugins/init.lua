@@ -2,6 +2,9 @@ return {
   -- games to practice vim motions
   'ThePrimeagen/vim-be-good',
 
+  -- navigate seemlessly between panes
+  'christoomey/vim-tmux-navigator',
+
   -- add indentation guides even on blank lines
   { 'lukas-reineke/indent-blankline.nvim', main = 'ibl', opts = {} },
 
