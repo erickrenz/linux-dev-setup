@@ -12,6 +12,7 @@
     - foot
     - tmux
     - fzf
+    - NetworkManager
     - jetbrains-mono-fonts-all
     # Neovim
     - neovim
