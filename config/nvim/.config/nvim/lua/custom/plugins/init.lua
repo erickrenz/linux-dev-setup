@@ -5,6 +5,9 @@ return {
   -- navigate seemlessly between panes
   'christoomey/vim-tmux-navigator',
 
+  -- git decorations for changed lines
+  { 'lewis6991/gitsigns.nvim', opts = {} },
+
   -- add indentation guides even on blank lines
   { 'lukas-reineke/indent-blankline.nvim', main = 'ibl', opts = {} },
 
