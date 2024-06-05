@@ -38,5 +38,3 @@ vim.o.undofile = true
 
 vim.o.updatetime = 50
 vim.o.colorcolumn = '80'
-
-vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]

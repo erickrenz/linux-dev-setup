@@ -19,7 +19,6 @@ return {
       sync_install = false,
       auto_install = true,
 
-      ignore_install = { 'javascript' },
       indent = { enable = true, disable = { 'python' } },
 
       highlight = {
