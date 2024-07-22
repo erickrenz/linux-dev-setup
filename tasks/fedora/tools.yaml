@@ -26,6 +26,7 @@
     - stow
     - ansible
     - git
+    - git-all
     - gh
     - jq
     - parallel
