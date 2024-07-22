@@ -31,7 +31,7 @@
     - jq
     - parallel
     - starship
-    - neofetch 
+    - fastfetch 
     - cmatrix 
     - wget  
     - openssh-server
