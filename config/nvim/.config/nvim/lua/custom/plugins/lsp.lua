@@ -47,6 +47,9 @@ return {
 
     local servers = {
       clangd = {},
+      cpptools = {},
+      delve = {},
+      debugpy = {},
       gopls = {
         settings = {
           gopls = {
