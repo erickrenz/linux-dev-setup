@@ -13,6 +13,22 @@ return {
       harpoon:list():add()
     end)
 
+    vim.keymap.set('n', '<C-q>', function()
+      harpoon:list():select(1)
+    end)
+    vim.keymap.set('n', '<C-w>', function()
+      harpoon:list():select(2)
+    end)
+    vim.keymap.set('n', '<C-e>', function()
+      harpoon:list():select(3)
+    end)
+    vim.keymap.set('n', '<C-r>', function()
+      harpoon:list():select(4)
+    end)
+    vim.keymap.set('n', '<C-t>', function()
+      harpoon:list():select(5)
+    end)
+
     for _, id in ipairs { 1, 2, 3, 4, 5 } do
       vim.keymap.set('n', string.format('<leader>%d', id), function()
         harpoon:list():select(id)
