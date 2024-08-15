@@ -5,6 +5,9 @@ return {
   -- navigate seemlessly between panes
   'christoomey/vim-tmux-navigator',
 
+  -- detect tabstop and shift width automatically
+  'tpope/vim-sleuth',
+
   -- git decorations for changed lines
   { 'lewis6991/gitsigns.nvim', opts = {} },
 
