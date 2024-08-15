@@ -20,7 +20,7 @@ return {
         vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
         vim.keymap.set('n', '<leader>k', vim.lsp.buf.signature_help, opts)
 
-        vim.keymap.set('n', '<leader>ss', vim.lsp.buf.workspace_symbol, opts)
+        -- return from definition using CTRL-O (see :h CTRL-O)
         vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
         vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
         vim.keymap.set('n', 'gt', vim.lsp.buf.type_definition, opts)
@@ -29,6 +29,16 @@ return {
         vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
         vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
 
+        vim.diagnostic.config {
+          float = {
+            focusable = false,
+            source = true,
+            style = 'minimal',
+            border = 'rounded',
+            header = '', -- "Diagnostics:"
+            prefix = '', -- "1. "
+          },
+        }
         -- nvim v0.10
         -- if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
         --   vim.keymap.set('n', '<leader>th', function()
