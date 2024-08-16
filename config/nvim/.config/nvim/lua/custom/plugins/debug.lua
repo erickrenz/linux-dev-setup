@@ -96,7 +96,7 @@ return {
     vim.keymap.set('n', '<leader>gb', dap.run_to_cursor)
 
     -- eval var under cursor
-    vim.keymap.set('n', '<space>?', function()
+    vim.keymap.set('n', '<leader>?', function()
       require('dapui').eval(nil, { enter = true })
     end)
 
