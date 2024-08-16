@@ -46,7 +46,6 @@ return {
 
     vim.keymap.set('n', '<leader>sd', builtin.diagnostics)
     vim.keymap.set('n', '<leader>sh', builtin.help_tags)
-    vim.keymap.set('n', '<leader>sk', builtin.keymaps)
 
     vim.keymap.set('n', '<leader>sw', builtin.grep_string)
     vim.keymap.set('n', '<leader>sg', builtin.live_grep)
