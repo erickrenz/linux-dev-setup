@@ -28,8 +28,7 @@ alias nv="nvim ."
 
 alias l="ls -al --color=auto"
 alias ls="ls --color=auto"
-alias neo="fastfetch"
-alias neofetch="fastfetch"
+alias fast="fastfetch"
 
 if [[ -e /bin/dnf || -e /usr/bin/dnf ]]; then
   alias up="sudo dnf upgrade -y"
