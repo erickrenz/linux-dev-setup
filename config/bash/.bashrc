@@ -14,6 +14,9 @@ export PATH
 # Source shared aliases and functions
 source "$HOME/.profile"
 
+# Set up fzf key bindings and fuzzy completion
+eval "$(fzf --bash)"
+
 # tmux sessionizer
 bind -x '"\C-f":tmux-sessionizer'
 

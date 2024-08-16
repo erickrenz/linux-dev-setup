@@ -3,6 +3,9 @@
 # Source shared aliases and functions
 source "$HOME/.profile"
 
+# Set up fzf key bindings and fuzzy completion
+source <(fzf --zsh)
+
 # tmux sessionizer
 bindkey -s ^f "tmux-sessionizer\n"
 
