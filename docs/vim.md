@@ -55,6 +55,11 @@
 
 - [g]+[Ctrl]+[a] increment first number in line
 
+### Advanced Global Movements
+
+- [Ctrl]+[o] move "out" (back) to previous buffer
+- [Ctrl]+[i] move "in" (forward) to next buffer
+
 ## Mode
 
 - [i] insert mode (left of cursor)
@@ -90,6 +95,7 @@
 - [u] undo
 - [U] undo whole line
 - [Ctrl]+[r] redo
+- [.] repeat last command
 
 - [Ctrl]+[6] switch between 2x files
 - [Ctrl]+[^] switch between 2x files
@@ -109,6 +115,9 @@
 - `:s/old/new/`: substitute first occurance in line
 - `:s/old/new/g`: substitute all occurances in line
 - `:%s/old/new/g`: substitute all occurances in file
+
+- `:%s/old/new/gc`: find all occurances in file, then ask for confirmation
+- `:#,#s/old/new/g`: substitute all occurances between two line numbers
 
 ## Insert Mode - Digraphs
 
