@@ -42,7 +42,7 @@ return {
 
         if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
           vim.keymap.set('n', '<leader>th', function()
-            vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf })
+            vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf }, { bufnr = event.buf })
           end, opts)
         end
 
