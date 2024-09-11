@@ -3,7 +3,7 @@ thunar.xml
 .setup.cfg
 tmux-client-*
 
-config/tmux/*
+config/tmux/.config/tmux/*
 !config/tmux/.config/tmux/tmux.conf
 
 config/xfce4/*

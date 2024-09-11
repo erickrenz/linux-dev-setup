@@ -2,6 +2,9 @@ import = [
     "~/.config/alacritty/themes/tokyo-night.toml"
 ]
 
+[env]
+term = "xterm-256color"
+
 [font]
 normal = { family="JetBrainsMono Nerd Font" }
 size = 16
