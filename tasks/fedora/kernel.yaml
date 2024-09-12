@@ -39,6 +39,7 @@
     - "@Virtualization"
     # Cross-build binary utilities
     - binutils-arm-linux-gnu 
+    - binutils-aarch64-linux-gnu
     - gcc-arm-linux-gnu 
     - gcc-c++-arm-linux-gnu
     - gcc-aarch64-linux-gnu

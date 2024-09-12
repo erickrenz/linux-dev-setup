@@ -106,7 +106,6 @@ return {
       lua_ls = {},
       pyright = {},
       rust_analyzer = {},
-      tsserver = {},
       zls = {
         settings = {
           zls = {
