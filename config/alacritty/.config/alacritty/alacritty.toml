@@ -3,8 +3,16 @@ import = [
 ]
 
 [env]
-term = "xterm-256color"
+# term = "xterm-256color"
+term = "screen-256color"
 
 [font]
-normal = { family="JetBrainsMono Nerd Font" }
+normal = { family="JetBrainsMono Nerd Font" } # with ligatures
+# normal = { family="JetBrainsMono" } # no ligatures
 size = 16
+
+[keyboard]
+bindings = [
+    { key = "C", mods = "Control", action = "Copy" },
+    { key = "V", mods = "Control", action = "Paste" },
+]
