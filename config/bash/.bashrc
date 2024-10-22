@@ -11,6 +11,11 @@ if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then
 fi
 export PATH
 
+# History File
+HISTCONTROL=ignoreboth
+HISTSIZE=10000
+HISTFILESIZE=10000
+
 # Source shared aliases and functions
 source "$HOME/.profile"
 

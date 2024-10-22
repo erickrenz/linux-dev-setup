@@ -66,3 +66,9 @@ export PATH="/usr/local/zig:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 source "$HOME/.cargo/env"
 
+# nats
+export PATH="/usr/local/nats/bin:$PATH"
+export PATH="/home/ekrenz/.nsccli/bin:$PATH"
+
+# modular
+export PATH="$PATH:/home/ekrenz/.modular/bin"

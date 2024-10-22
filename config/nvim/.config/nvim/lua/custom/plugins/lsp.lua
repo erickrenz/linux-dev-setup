@@ -81,14 +81,15 @@ return {
       debugpy = {},
       gopls = {
         settings = {
+          -- https://github.com/golang/tools/blob/master/gopls/doc/settings.md
           gopls = {
-            completeUnimported = true,
+            -- completeUnimported = true,
             usePlaceholders = true,
             analyses = {
-              fieldalignment = true,
-              unusedparams = true,
+              -- fieldalignment = true,
+              shadow = true,
               unusedvariable = true,
-              unusedwrite = true,
+              useany = true,
             },
             hints = {
               assignVariableTypes = true,
