@@ -25,5 +25,9 @@ eval "$(fzf --bash)"
 # tmux sessionizer
 bind -x '"\C-f":tmux-sessionizer'
 
+# asdf (bash & git)
+. "$HOME/.asdf/asdf.sh"
+. "$HOME/.asdf/completions/asdf.bash"
+
 # starship
 eval "$(starship init bash)"

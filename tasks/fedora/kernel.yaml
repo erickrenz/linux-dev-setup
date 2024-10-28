@@ -8,7 +8,6 @@
     - bindgen 
     - python3-sphinx 
     - openssl 
-    - pcmciautils 
     - grub-customizer 
     - bc
     - xxd

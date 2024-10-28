@@ -35,3 +35,22 @@
     - perl
     - php
     - composer
+
+- name: Install asdf prerequisites
+  dnf:
+    name: "{{ item }}"
+    state: latest
+  loop:
+    - curl
+    - git
+
+- name: See if asdf exists
+  stat:
+    path: /home/ekrenz/.asdf
+  register: asdf_stats
+
+- name: Install asdf
+  shell: git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.14.1
+  when: asdf_stats.stat.exists == False
+  become_user: ekrenz
+
