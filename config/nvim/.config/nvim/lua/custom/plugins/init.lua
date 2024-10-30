@@ -1,7 +1,4 @@
 return {
-  -- games to practice vim motions
-  'ThePrimeagen/vim-be-good',
-
   -- navigate seemlessly between panes
   'christoomey/vim-tmux-navigator',
 
@@ -19,9 +16,4 @@ return {
 
   -- highlight todo, notes, etc in comments
   { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
-
-  -- sql database admin
-  'tpope/vim-dadbod',
-  'kristijanhusak/vim-dadbod-completion',
-  'kristijanhusak/vim-dadbod-ui',
 }

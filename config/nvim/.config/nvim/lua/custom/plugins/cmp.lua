@@ -7,7 +7,6 @@ return {
     'hrsh7th/cmp-nvim-lsp',
     'hrsh7th/cmp-path',
     'hrsh7th/cmp-buffer',
-    'kristijanhusak/vim-dadbod-completion',
   },
   config = function()
     local cmp = require 'cmp'
@@ -54,12 +53,5 @@ return {
         { name = 'buffer' },
       },
     }
-
-    cmp.setup.filetype({ 'sql' }, {
-      sources = {
-        { name = 'vim-dadbod-completion' },
-        { name = 'buffer' },
-      },
-    })
   end,
 }
