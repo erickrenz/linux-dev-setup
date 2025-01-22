@@ -13,7 +13,7 @@ Features:
 - _infra_: Sway, Wayland, Waybar, Rofi
 - _theme_: Tokyo Night, JetBrainsMonoNerdFont
 
-_Note: macOS/Darwin does not support any linux tiling window manager ('infra') features. The Kitty terminal is reccomended in order to use the other features ('langs', 'tools', 'theme')._
+_Note: MacOS/Darwin does not support any Linux tiling window manager ('infra') features. The Kitty terminal is recommended in order to use the other features ('langs', 'tools', 'theme')._
 
 ## Linux Quick Start
 

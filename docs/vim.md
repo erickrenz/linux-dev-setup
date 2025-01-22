@@ -119,6 +119,12 @@
 - `:%s/old/new/gc`: find all occurances in file, then ask for confirmation
 - `:#,#s/old/new/g`: substitute all occurances between two line numbers
 
+## Text Editing Tips
+
+- [Ctrl]+[a] increment number under cursor
+- [Ctrl]+[x] decrement number under cursor
+- [~] toggle character under cursor
+
 ## Insert Mode - Digraphs
 
 - `:dig`: show list of all available digraphs

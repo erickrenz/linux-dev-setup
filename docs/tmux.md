@@ -24,3 +24,6 @@
 - [Prefix]+[Arrow Key] move between panes
 - [Prefix]+[x] close current pane
 
+- [Prefix]+[Alt]+[1] pane layout horizontal
+- [Prefix]+[Alt]+[2] pane layout vertical
+
